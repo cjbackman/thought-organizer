@@ -1,0 +1,4 @@
+config.ini
+venv/
+.ipynb_checkpoints/
+.virtual_documents/

@@ -1,0 +1,1541 @@
+front,back,tags,sources,decks,id
+What are three good practices to design for *testability*?,"* Modular design
+* Use of interfaces
+* Dependency injection",testability,https://www.codereliant.io/making-software-reliable-the-importance-of-testability/,Software Architecture,OW2tfrufw32pG18zT0mv
+What strategies can help us aspire toward eudaimonic wellbeing?,"* Know your values and aspire to live a value-led life.
+
+* Be clear about your long-term goals and aim to take daily steps toward them.
+
+* Reflect on the classical virtues that speak to you and try to put them into action.
+
+* Take good care of your physical and mental health.
+
+* Appreciate privileged connections.
+
+* Don’t just aim to feel good, but aspire to do good. Feeling good will follow.
+
+* Seek flow states.
+
+* Aim for balance in your life. Don’t banish hedonic pleasure from your life completely.",eudaimonic happiness,https://positivepsychology.com/hedonic-vs-eudaimonic-wellbeing/#happiness,Wellbeing,d7M4BV1RcboL8AztnljO
+What is *testability*?,How easily a software can be tested.,testability,https://www.codereliant.io/making-software-reliable-the-importance-of-testability/,Software Architecture,ubHXLVPhdzOWaKLCWv82
+"What are ""tidyings""?","Tidyings are a subset of refactorings. 
+
+They are structural changes supporting the next behavior change, and should not take more than minutes to hours to complete.","definition,tidyings","Tidy First?
+Beck, Kent",Tidy First?,sFSx9aj5sgprh8SltBHB
+What is the order of magnitude time wise when tidying?,"Tidying is a minutes-to-an-hour kind of activity. Yes, sometimes it goes on longer, but not for long.",decision-making,"Tidy First?
+Beck, Kent",Tidy First?,vVwpzxqKFEdj67Lm8np6
+How should you deal with dead code?,"Delete it. That’s all. If the code doesn’t get executed, just delete it.","tidying,dead code","Tidy First?
+Beck, Kent",Tidy First?,9x3llK0LNB6hsHvAJXEc
+What should you do if you see `response.code == 404`?,"Create a symbolic constant, e.g., `FILE_NOT_FOUND = 404`. Replace uses of the literal constant with the symbol.","tidying,symbolic constants","Tidy First?
+Beck, Kent",Tidy First?,LSRONTbKRk9Dgqx0oZjh
+What is the biggest cost of code?,"The biggest cost of code is the cost of reading and understanding it, not the cost of writing it.","cost,decision-making","Tidy First?
+Beck, Kent",Tidy First?,gzf8c6pYKVvVB2njSL79
+What do discounted cash flows and options tell us about when to tidy?,"*Discounted cash flow* tells us to make money sooner with greater likelihood and spend money later with less likelihood. Don’t tidy first. That’s spending money sooner and earning money later. Maybe don’t even tidy after or later. 
+
+*Options* tell us to spend money now to make more money later (even if we don’t currently know exactly how). Absolutely tidy first (when it creates options). Tidy after and later too.","decision-making,value","Tidy First?
+Beck, Kent",Tidy First?,xvOfTgEtP471qSdbcpOv
+What is the difference between features and design?,"**Features** - What do users want?
+
+**Design** - How can programmers best be supported to deliver those features?",software design,"Tidy First?
+Beck, Kent",Tidy First?,NnegKhTXob1N5vBLZGgG
+Why does the cost of software grow steeply after release?,"Visualized, the cost per month (say) starts low, grows rapidly, then shrinks as other opportunities become more profitable.
+
+But why is the slope of cost growth so much steeper after release? Are we really making more changes? Yes, some more. But also, the existing system has started to create friction.
+
+We have to worry about backward compatibility. We have to worry about production stability. We have to worry about all the ways any one change might break seemingly unrelated features.","value,cost","Tidy First?
+Beck, Kent",Tidy First?,EZ9WryXP85TNBDDRYH5v
+"Why is ""refactoring"" controversial these days?",“Refactoring” took fatal damage when folks started using it to refer to long pauses in feature development.,refactoring,"Tidy First?
+Beck, Kent",Tidy First?,4NF0cBibJRcTROZZW3Jo
+"Sometimes you read code that’s been split into many tiny pieces, but in a way that hinders you from understanding it. What to do?",Inline as much of the code as you need until it’s all in one big pile. Tidy from there.,tidying,"Tidy First?
+Beck, Kent",Tidy First?,nhbFpNSJBcSWLBnRFz3C
+Is decoupling always a good thing?,"Not really. To reduce the cost of software, we must reduce coupling. But decoupling isn’t free and is subject to trade-offs.",coupling,"Tidy First?
+Beck, Kent",Tidy First?,6fke3XukQWRBPmhZTSYh
+Should you tidy first if `cost(tidying) + cost(behavior change after tidying) > cost(behavior change without tidying)` ?,Tidying first may make economic sense in spite of discounted cash flows if the value of the options created is greater than the value lost by spending money sooner and with certainty.,value,"Tidy First?
+Beck, Kent",Tidy First?,GaLSa9yTXH1Jsfvaex8D
+What properties make coupling so difficult?,"**1–N** - One element can be coupled with any number of other elements with respect to a change.
+
+**Cascading** - Once a change has rippled from one element to another, that implied change can trigger another round of changes, which can themselves trigger changes of their own.",coupling,"Tidy First?
+Beck, Kent",Tidy First?,IZnFNyJaIM63IN5t5wyv
+How to improve cohesion in a responsible and efficient way?,"Move one element at a time. Make the code tidier for the next person. If everyone follows the Scout rule (“leave it better than you found it”), the code will become more livable over time.",cohesion,"Tidy First?
+Beck, Kent",Tidy First?,DHQmoJMhAvXzBje69Xli
+"When reading code you realize “Oh, so that’s what’s going on!”. What to do?",That’s a valuable moment. Record it. Write down only what wasn’t obvious from the code.,tidying,"Tidy First?
+Beck, Kent",Tidy First?,twIvk4uZaewtiBQMnONN
+Do you have to change the behavior of a system to make it more valuable?,"No. As soon as you add to the options of what it could do next, you make the code more valuable.","value,software design","Tidy First?
+Beck, Kent",Tidy First?,ZvktSDFYqnXB7ma2NPBV
+You see a block of code inside a routine that has an obvious purpose and limited interaction with the rest of the code in the routine. What should you do?,Extract it as a helper routine. Name the routine after the purpose (not how the routine works).,"tidying,helpers","Tidy First?
+Beck, Kent",Tidy First?,WQ62oj5A38xjhjasMn7O
+Should declaration and initialization be located close to each other?,"Yes. When you come across code that separates the declaration (with a possible type) and initialization, it’s harder to read. By the time you get to the initialization, you’ve forgotten some of the context of what the variable is for. Move declaration and initialization together.",tidying,"Tidy First?
+Beck, Kent",Tidy First?,pM1xYZcurOVwhUBt13l2
+When to tidy?,"Tidy never when: 
+* You’re never changing this code again.
+* There’s nothing to learn by improving the design.
+
+Tidy later when:
+* You have a big batch of tidying to do without immediate payoff. 
+* There’s eventual payoff for completing the tidying. You can tidy in little batches.
+
+Tidy after when: 
+* Waiting until next time to tidy first will be more expensive.
+* You won’t feel a sense of completion if you don’t tidy after.
+
+Tidy first when:
+* It will pay off immediately, either in improved comprehension or in cheaper behavior changes.
+* You know what to tidy and how.",decision-making,"Tidy First?
+Beck, Kent",Tidy First?,VWf9Uat0VLdTYbaEtAzH
+How should code be ordered in a file?,"Order the code in the file in the order in which a reader (remember, there are many readers for each writer) would prefer to encounter it.","tidying,reading order","Tidy First?
+Beck, Kent",Tidy First?,vp7fhPyo9m6UDIsPJpHl
+How should tidyings and behavioral changes be structured with regards to PRs?,"Split the changes into separate PRs. 
+
+Sequences of tidyings (or even just one tidying) go in one PR. Behavior changes go in a separate PR. 
+
+Each time we switch between tidying and changing behavior, we open a new PR.","structural change,behavioral change","Tidy First?
+Beck, Kent",Tidy First?,ubd5Lb0HNZHyHlU4DPDy
+How does software create value?,"Software creates value in two ways:
+
+* What it does today
+* The possibility of new things we can make it do tomorrow",value,"Tidy First?
+Beck, Kent",Tidy First?,sw7LUSK5HwxL0s5fcb0S
+"So you need to call a routine, and the interface makes it difficult/complicated/ confusing/tedious. What to do?","Implement the interface you wish you could call and call it. Implement the new interface by simply calling the old one (you can inline the implementation later, after migrating all other callers).",tidying,"Tidy First?
+Beck, Kent",Tidy First?,rsrXjFmrxYoYQ3HwewW6
+What forces affect whether to tidy first or not?,"* Cost—Will tidying make costs smaller, later, or less likely?
+* Revenue—Will tidying make revenue larger, sooner, or more likely?
+* Coupling—Will tidying make it so I need to change fewer elements?
+* Cohesion—Will tidying make it so the elements I need to change are in a smaller, more concentrated scope?",decision-making,"Tidy First?
+Beck, Kent",Tidy First?,ogHo1f4lW99g97et0ff6
+What should you do when you see a comment that says exactly what the code says?,Remove it.,"tidying,redundant comments","Tidy First?
+Beck, Kent",Tidy First?,ka7Be1AZcTeteTtPL523
+What should you do when doing one behavior change makes you change several widely dispersed spots in the code?,Reorder the code so the elements you need to change are adjacent.,"tidying,cohesion order","Tidy First?
+Beck, Kent",Tidy First?,aExYC7Ta3sZsEahPw7PB
+What drives the cost of software?,Coupling drives the cost of software.,"coupling,cost","Tidy First?
+Beck, Kent",Tidy First?,ViVY33tOf9X32ZegO6BK
+"You finally understand a part of a big, hairy expression. What to do?",Extract the subexpression into a variable named after the intention of the expression.,tidying,"Tidy First?
+Beck, Kent",Tidy First?,PYgAYljBDwR6RrYIc5s9
+"Why has ""coupling"" lost its meaning?","The word “coupling” has lost its meaning over time, coming to mean any relationship between elements in a system. “This service is coupled with that service”—okay, but how? With respect to what changes? It’s not enough to know that one service invokes another; we need to know what changes to one service would require changes to the other.",coupling,"Tidy First?
+Beck, Kent",Tidy First?,NZYMjbmmp3n8JxWXhTMm
+Should you tidy first when `cost(tidying) + cost(behavior change after tidying) < cost(behavior change without tidying)`?,Yes.,decision-making,"Tidy First?
+Beck, Kent",Tidy First?,KipIPoIRq10BFsxiNBbY
+If you see code with multiple ways to solve the same problem. What to do?,"If you see a pattern, pick one way to solve the problem and make the code consistent.",tidying,"Tidy First?
+Beck, Kent",Tidy First?,IFiSOfwHpa3eZ3lpt8fQ
+Why is software design important?,"To manage costs, because:
+
+`cost(software) ~= coupling`","software design,coupling","Tidy First?
+Beck, Kent",Tidy First?,HYQfwypmB1vc93bQ8dDK
+How can we reduce the cost of tidying using reviews?,"If we want to reduce the cost of tidying, thus increasing tidying and reducing the cost of making behavior changes, then we can reduce the cost of review.","cost,decision-making","Tidy First?
+Beck, Kent",Tidy First?,GRcl4xnJdfO4OjXbWalV
+What are the implications of cohesion?,"* Coupled elements should be subelements of the same containing element. Shovel all the manure into one pile. 
+
+* Elements that aren’t manure (well, that aren’t coupled) should go elsewhere.",cohesion,"Tidy First?
+Beck, Kent",Tidy First?,Dzm2lvID2nGux9bEg6bK
+What is speculative and reactive design?,"*Speculative design*
+
+We know what we want to do next, so let’s design for it today. It will be cheaper to design now. Besides, once the software is in production we will never have the chance to design, so let’s pile it all in today. 
+
+*Reactive design*
+
+Features are all anyone cares about, so let’s design as little as we can today so we can get back to features. Only when features become nearly impossible to add will we begrudgingly improve the design, and then only just enough to get back to features.","speculative design,reactive design","Tidy First?
+Beck, Kent",Tidy First?,AaGcFXz2iqPMls2dRFYk
+"You’re reading a big chunk of code and you realize, “Oh, this part does this and then that part does that.” What to do?",Put a blank line between the parts.,tidying,"Tidy First?
+Beck, Kent",Tidy First?,8NmMV9C0QeGVb57uXXan
+What is the tradeoff of coupling and decoupling?,You can pay the cost of coupling or pay the cost (and reap the benefits) of decoupling. And you can fall anywhere along this continuum. No wonder software design is hard.,"decision-making,coupling","Tidy First?
+Beck, Kent",Tidy First?,4kOs7HRQqIgKk3WTKzCJ
+What are four types of value?,"* Satiating good - Once you have a reasonable amount of these goods, there is no additional benefit to having more, but it also won’t hurt to have more (in realistic quantities). 
+
+* Diminishing good - It’s always good to have more of these goods, but the amount of value each additional unit gives you diminishes as you get more and more, but never reaches zero (for realistic quantities). 
+
+* Overdosable good - These are beneficial up to some amount but further amounts of overdosable goods actually become harmful.
+
+* Linear good - The benefit you get from them increases at a constant (linear) rate as you get more of them. Every additional unit provides the same amount of extra happiness or utility. 
+
+Use the above to reason about how “good” something is and make more rational decisions.","decision-making,value",https://www.clearerthinking.org/post/think-smarter-about-what-s-good,Life Hacks,8Q8S1aWCvDP8WJNBybrB
+What is eudaimonic wellbeing?,"The type of happiness or contentment that is achieved through self-actualization and having meaningful purpose in one’s life.
+
+To phrase it another way, eudaimonia refers to the extent that we’re living a life focused on being the best version of ourselves, and striving towards our fullest human expression.","eudaimonic wellbeing,positive psychology",Reframe app,Wellbeing,Lu8wHPxCitoKpTy7F1fv
+How to measure eudaimonic wellbeing?,"* Self-discovery. This involves knowing who we are as human beings — what we’re passionate about, what our values are, etc. — and possessing a strong sense of identity.
+
+* Perceived development of one’s best potentials. This involves not only acknowledging what our potentials are (i.e, unique talents, skills, abilities), but taking action towards them so that they can become fully developed.
+
+* A sense of purpose and meaning in life. Once we recognize our talents and skills, we can begin using them to fulfill larger life goals.
+
+* Investment of significant effort in pursuit of excellence. When we are aware of our goals and ambitions, we devote more of our time and energy towards the tasks that align with them. We spend more time on these activities than on those that don’t help us achieve these dreams.
+
+* Intense involvement in activities. Not only do we spend more time on the activities that allow us to live out our life’s purpose, we also feel more engaged and present when we are doing them — a concept known as “flow.”
+
+* Enjoyment of activities as personally expressive. The best way to measure this area of eudaimonic well-being is to determine the extent to which we agree with the following statement: “It is really important that I enjoy what I do, not that that others are impressed by it.”","eudaimonic wellbeing,positive psychology",Reframe app,Wellbeing,YLBYOKNxk9j1zXvVZnDz
+What four buckets can you use to categorize your work according to Amun Rathi?,"* Brilliant basics - tech debt, hygiene stuff, etc
+* Bread and butter - optimizing
+* Big bets - longer term investments with estimated high potential
+* Breaking bad - moonshots","strategy,framework,investment allocation",https://open.spotify.com/episode/1TYYKvD3BZLkHCF4yC1OkA?si=0cbFPfPLQBuorFFkHDgfQA,Product Management,kEssFkDgy8Be6iyPg3uz
+What is autonomy in the six-factor model of psychological wellbeing?,"High scores indicate that the respondent is independent and regulates his or her behavior independent of social pressures. An example statement for this criterion is ""I have confidence in my opinions, even if they are contrary to the general consensus"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,CyFOUmmftFzRCzrTk2wf
+What is a good question to ask when making a bigger decision about buying something?,Will this significantly change how I spend my time on an average Tuesday?,decision-making,https://open.spotify.com/episode/2b8flTcHXIoM6ITxhLcZCv?si=yeJAoTOJQ9i-4opFOTqjBA&t=3549,Life Hacks,KpHdhYNvbz79r3hz5aav
+What is purpose in life in the six-factor model of psychological wellbeing?,"High scores reflect the respondent's strong goal orientation and conviction that life holds meaning. An example statement for this criterion is ""Some people wander aimlessly through life, but I am not one of them"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,MHwzTscvYsrcEeIpDqAJ
+What is self-acceptance in the six-factor model of psychological wellbeing?,"High scores reflect the respondent's positive attitude about his or her self. An example statement for this criterion is ""I like most aspects of my personality"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,OJEIJ1zT2MH2V8LocIOJ
+What is positive relations with others in the six-factor model of psychological wellbeing?,"High scores reflect the respondent's engagement in meaningful relationships with others that include reciprocal empathy, intimacy, and affection. An example statement for this criterion is ""People would describe me as a giving person, willing to share my time with others"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,POo8cy34BwJ65374WGLU
+What is environmental mastery in the six-factor model of psychological wellbeing?,"High scores indicate that the respondent makes effective use of opportunities and has a sense of mastery in managing environmental factors and activities, including managing everyday affairs and creating situations to benefit personal needs. An example statement for this criterion is ""In general, I feel I am in charge of the situation in which I live"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,QzpgLSNuZNviVsNDaGrP
+What are questions to ask if you are self-gaslighting yourself?,"When was the last time you felt a genuine sense of accomplishment at work, and what sparked that feeling? How do your actions set you up for more of those moments?
+
+Have you noticed a pattern in the situations that cause you to doubt yourself, and what do these situations have in common?
+
+How might you be minimizing or invalidating your feelings and experiences at work?
+
+How do the polished, success-focused narratives you often hear in professional advice contrast with the realities of your daily work experience? What does this disparity tell you about the authenticity of such advice in your career journey?
+
+How do your habitual responses to stress and anxiety at work align or conflict with your ultimate goal of meeting your personal and professional needs?
+
+What small, actionable steps can you take to establish boundaries that protect you from absorbing the low-level dysfunction in your workplace, and how might these boundaries help you maintain your well-being and focus on what truly matters in your job?
+
+In what specific ways does your work environment foster self-doubt, and what might be the underlying reasons for this dynamic? Who benefits?
+
+How can you dig deeper into the 'that's just how it is at this level' claim you hear at work? What can you do to chat with folks in other companies or industries to see if they're dealing with the same stuff or if it's just a 'your company' thing?","mentoring,coaching,self-gaslighting",https://cutlefish.substack.com/p/tbm-254-self-gaslighting-and-the,Mentoring & Coaching,RfTZWC5zouYfo7KenTS6
+What are the six factors in the six-factor model of physiological wellbeing?,"1. Autonomy 
+2. Environmental mastery 
+3. Personal growth
+4. Positive relations with others
+5. Purpose in life
+6. Self-acceptance","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,UNrRstmH9iL1qpJ8S2Iq
+What is the six-factor model of psychological well-being?,"The six-factor model of psychological well-being is a theory developed by Carol Ryff which determines six factors which contribute to an individual's psychological well-being, contentment, and happiness.","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,biQzYZ030R0nkSQmFhmm
+What is personal growth in the six-factor model of psychological wellbeing?,"High scores indicate that the respondent continues to develop, is welcoming to new experiences, and recognizes improvement in behavior and self over time. An example statement for this criterion is ""I think it is important to have new experiences that challenge how you think about yourself and the world"".","wellbeing,six-factor model",https://en.m.wikipedia.org/wiki/Six-factor_model_of_psychological_well-being,Wellbeing,x7xXEAqKVSjvOWRK1Lqb
+What are practices to build psychological safety?,"* Tangible interventions to encourage team members to speak up
+
+* Striking the right balance between intellectual honesty and psychological safety
+
+* Cultivating psychological safety to help diverse teams excel","psychological safety,leadership,people management",https://knowledge.insead.edu/leadership-organisations/effective-strategies-building-and-boosting-psychological-safety,Engineering Leadership,RjihpNKS2DSEXwSwGLhK
+What are the elements of *story spine*?,"1. Once upon a time... - Introduce the main character and set the scene.
+
+2. And every day... - Describe the normal routine or situation of the main character.
+
+3. But one day... - Introduce an event that disrupts the normal routine.
+
+4. Because of that... - Explain the consequences or actions resulting from the event.
+
+5. Because of that... Continue to describe the series of events and reactions.
+
+6. Because of that... - Keep building upon the chain of cause and effect.
+
+7. Until finally... - Describe the climax or turning point of the story.
+
+8. And ever since then... - Explain the new normal or resolution after the climax.
+
+9. The moral of the story is... - Optionally, convey the lesson or message of the story.","story spine,storytelling",https://bookbird.io/story-spine/,Clear Communication,979NorF7bTG6Lr8KsqQ3
+What is *story spine*?,"A story spine is a simple yet powerful storytelling framework, consisting of a series of connected phrases or “spines” that guide the progression of a narrative. 
+
+It provides a blueprint for writers to create engaging stories with a clear beginning, middle, and end.","story spine,storytelling",https://bookbird.io/story-spine/,Clear Communication,sulS54SYxmTQExZ65nDk
+What are the four components of non-violent communication?,"* Observation: These are facts, specific to time and context, distinct from our evaluation of meaning and significance.  
+
+* Feelings: These are emotions or sensations, free of thought and story. They reflect whether we are experiencing our needs as met or unmet. Identifying feelings is said to allow us to more easily connect with one another.
+
+* Needs: These are universal human needs, as distinct from particular strategies for meeting needs. E.g., sustenance, safety, love, understanding/empathy, creativity, recreation, sense of belonging, autonomy and meaning.
+
+* Requests: Requests are distinguished from demands in that one is open to hearing a response of ""no"" without triggering an attempt to force the matter. It is recommended that requests use clear, positive, concrete action language.","non-violent communcation,leadership",https://en.wikipedia.org/wiki/Nonviolent_Communication,Clear Communication,vyb5cT6w2eD7Vxu4pqqA
+What are possible patterns for code collaboration?,"* File a ticket - open a ticket with the owning team.
+
+* Internal open-source - anyone can contribute, but the owner reviews and approves.
+
+* Trusted outsider - the owner trusts certain outsiders to contribute directly.
+
+* Tour of duty - engineers from other teams will temporarily join the owning team to make the contributions.
+
+* Embedded expert - an expert from the owning team is temporarily embedded in the contributing team to make the change.",collaboration models,https://blog.thepete.net/blog/2021/06/17/patterns-of-cross-team-collaboration/,Engineering Leadership,JIZYaMtMnxvvA2gAOVdr
+"How to mentor skills, according to David Golden?","To mentor skills, observe them in action.
+
+First, you have to observe the mentee’s activities or output. For coding skills, code review or pair programming would work. For communication skills, sit in on a meeting they expect to actively participate in or watch them practice a presentation. For technical writing, read what they’ve written.
+
+The most important thing you can do is provide actionable feedback.","coaching,mentoring",https://xdg.me/mentor-engineers/,Mentoring & Coaching,A4GQTb07w0NkopZSb6I7
+"How to mentor situations, according to David Golden?","To mentor situations, tell stories.
+
+First, sharing a related experience reassures a mentee that they’re not alone – that someone else has faced a similar challenge. 
+
+Second, stories engage the listener’s brain, helping them focus more completely on what they’re being told rather than their own problems. 
+
+Third, stories let a mentee consider a situation through an abstraction – when they aren’t the protagonist of their own, immediate problem, they have a chance to see a situation more objectively and consider different perspectives. 
+
+Finally, it preserves their agency and sense of control. A story is a teaching tool – “this worked for me” – but you leave the decisions up to them.","coaching,mentoring",https://xdg.me/mentor-engineers/,Mentoring & Coaching,78Djwga6uFtSExdUuY2w
+"How to mentor goals, according to David Golden?","To mentor goals, ask questions.
+
+To help someone understand their goals, ask questions that help them reflect on their current situation, consider potential futures, and chart a course from one to another.
+
+What’s going well? What’s not going well? What about your role do you enjoy the most? What’s most frustrating? If you could change one thing, what would it be and why?","coaching,mentoring",https://xdg.me/mentor-engineers/,Mentoring & Coaching,8f8hr6a4APg1qV6pxudJ
+"What three levels should mentors operate on, according to David Golden?","* Goals - figuring out what they really want
+* Situations - handling the unfamiliar or difficult
+* Skills - getting promoted","coaching,mentoring",https://xdg.me/mentor-engineers/,Mentoring & Coaching,REGC8cfbRz2Ig0xb6DkL
+"When mentoring, what should you provide instead of solutions, according to Jo Owen?","Rather than solutions, provide frameworks:
+
+For example, ‘I have found a useful way of thinking about this type of problem’. Remember, you offering them a fresh way of thinking about their issue. Let them work out with you how to apply the framework.","coaching,mentoring",How To Coach by Jo Owen,Mentoring & Coaching,rcQ6JRYXgJUlSzTn7FnY
+"When mentoring, what should you provide instead of answers, according to Jo Owen?","Rather than answers, provide questions:
+
+* What’s stopping you doing that? 
+* Why are you approaching it this way?
+* What would happen if you didn’t hold this true?
+* If you had a magic wand, what would you do differently?
+* How would your hero tackle this?","coaching,mentoring",How To Coach by Jo Owen,Mentoring & Coaching,QYa5jZ9d2zpvppwjt9H7
+What are the five Os framework by Jo Owen?,"* Objectives: what are we trying to achieve, what is the desired outcome?
+* Overview: What is the situation, and how does it look from different points of view?
+* Options: What are our possible courses of action and what are the benefits and risks of each one?
+* Obstacles: What will stop us from taking the best course of action, and how can we overcome those obstacles?
+* Outcome: Who will do what, where, how and when?","five Os,mentoring,coaching",How To Coach by Jo Owen,Mentoring & Coaching,JaUJ5gl8eTi06VHSCtB9
+What are examples of *miracle questions*?,"* Imagine that you wake up tomorrow, and by some miracle, the problem you have has disappeared. But because it’s a miracle, you don’t know it yet. How would you discover it’s gone away?
+* Let’s imagine we are having our end-of-year performance conversation, and project X would have been entirely solved.
+* What is it in your work relationship with person X that you want to change? Three months from now, what would have changed when you come to a meeting with this person that would be a clear sign that something has changed?
+* How would the people in your team know that it is the case?
+* How would you know that something has changed?
+* How would you be aware that something is different?
+* How would others around you notice?
+* If a third person was in that meeting with you, what would this person notice?",SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,DT9R8ZkV8BfaLv6VS6Az
+"In solution-oriented coaching, what are *miracle questions*?",A category of questions is meant to help someone visualize a future in which his problem is gone.,SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,1TD7xwQ3pJDKm0rWB2Om
+What are examples of *coping questions*?,"* How did you manage to keep going despite everything going wrong?
+* How did you manage to prevent things from getting even worse?
+* How have you managed to keep going while suffering depression for so long?
+* How did you manage to cope with divorce on top of your depression?
+* What did your employer see in you that led them to give you such a responsible job?
+* How on earth did you overcome your alcoholism when you were in such dire straits?
+* How did you overcome your drug addiction?
+* Where did you find the confidence to speak to her let alone ask her out?
+* How did she know that behind the sad façade was a man worth marrying?",SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,RSuvSFzt9qn2yA5H5kg3
+"In solution-oriented coaching, what are *coping questions*?",Coping questions are useful to help someone remember that they have overcome many challenging situations in the past and that they have resources and resilience in them.,SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,7WONlZMGD2e3X8m7uCCh
+What are examples of *scaling questions*?,"* How would you rate your motivation on this project from 0 to 10, with 0 being the lowest and 10 being the highest?
+* What score would you rate your motivation when you started the project?
+* What can explain why the score has been going down over time? (or up)
+* What would be a small thing you could do to increase the rating by a mere 0.5?
+* What would take the situation and how you perceive it from a 4 to a 4.5?",SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,lbN5m0ukwfr0QOtA4HTP
+"In solution-oriented coaching, what are *scaling questions*?","Scaling questions are useful to assess progress towards a goal, and figure out how to keep someone on track with making progress. A natural follow-up to a scaling question is to ask a “small next step” question to identify what can be done to maintain progress.",SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,qA50NVvbyCVoaeh73af7
+What are examples of *exception questions* in solution-focused coaching?,"* Are there times when this has been less of a problem?
+* Were there past moments when the opposite happened, and everything went smoothly?
+* How have you and the team managed to get so many of the backlog tasks and projects done?
+* What do you think contributed to those achievements? 
+* What can be done for the team to achieve even more of those?
+* When you worked on task A, you finished it very quickly and with high quality. Now if we look at task B, that took longer, and the result was not as shiny. What can be done to apply more of your success in the tasks of type A towards the tasks of type B?
+* What exactly made it less of a problem during those times?
+* What do you think made it so that in the examples you just gave me, the outcome was successful?",SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,RkhdJt7zMbgvsl7OXC3d
+"In solution-focused coaching, what are *exception questions*?",Exception questions are meant to help identify potential solutions by looking at what has worked or helped in similar situations.,SFBT,https://codecapsule.com/2023/08/23/solution-oriented-coaching-or-the-lost-art-of-effective-conversations/,Mentoring & Coaching,SAqVlVvkrKHo4tJNTCtm
+What are the three common data ownership scenarios between services?,"* Single ownership - one service writes to the table (solution: that service owns the table)
+* Common ownership - all/most services write to the table (solution: create a new, dedicated service for writing who also owns the table)
+* Joint ownership - two or more services  write to the table (solution: more complex)","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,01xp0Kiw6cIHEldSnbWV
+What is *CORS*?,"Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+
+An example of a cross-origin request: the front-end JavaScript code served from **https://domain-a.com** uses XMLHttpRequest to make a request for **https://domain-b.com/data.json**.","security,rest,api",https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS,Software Security,050CUJ1u7PQIa03sGBt9
+What are the five factors that can be used to identify if a decision is *architecturally significant*?,"The decision affects:
+
+* The structure (i.e., architecture style)
+* Non-functional requirements
+* Dependencies (i.e., coupling between components/services)
+* Interfaces (e.g., contracts, version management)
+* Construction techniques (decisions about e.g., platforms, frameworks)",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,0LDeT1eE0A6iLFURbVni
+What are the five hindrances?,"In the Buddhist tradition, the five hindrances are identified as mental factors that hinder progress in meditation and in our daily lives. They are:
+
+1. Sensory desire (kāmacchanda): seeking for pleasure through the five senses of sight, sound, smell, taste and physical feeling.
+2. Ill-will (vyāpāda; also spelled byāpāda): feelings of hostility, resentment, hatred and bitterness.
+3. Sloth-and-torpor (thīna-middha): half-hearted action with little or no effort or concentration.
+4. Restlessness-and-worry (uddhacca-kukkucca): the inability to calm the mind and focus one's energy.
+5. Doubt (vicikiccha): lack of conviction or trust in one's abilities.","mindfulness,buddhism,meditation",https://en.wikipedia.org/wiki/Five_hindrances,Mindfulness,0NWJMqJPxp6D4xruGEJ3
+What is the data dichotomy?,Data systems are about exposing data. Services are about hiding it.,data architecture,https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/,Software Architecture,0SdRAAzfBrrGvtBCpejs
+What is the *bridge pattern*?,It is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,0eYziwVUhUZVGRhqUUmk
+What two capabilities in *architecture* drive improvements in software delivery performance?,"* Use a loosely coupled architecture.
+* Architect for empowered teams.","software engineering,performance,software architecture",Accelerate by Nicole Forsgren et al.,Effective Engineering,19pxypdEwnbRCYJF1YQd
+What are the trade-offs for code replication as a reuse pattern?,"### Pros
+* Preserves the bounded context
+* No code sharing
+
+### Cons
+* Difficult to apply code changes
+* Code inconsistency across services
+* No versioning capabilities across services","software architecture,reuse code",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,19yZHrDmwJzU34tnSh9L
+How does the domain concern *time to market* translate to architecture characteristics?,"* Agility
+* Testability
+* Deployability","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,1IUPMhaQcNpTanXxQJCO
+What are the steps for Minto's Pyramid Principle of structuring documents?,"1. Start by brainstorming your proposal into a series of arguments that support your answer. 
+
+2. Once you've written them all down, group them into related arguments. 
+
+3. Shape those groups into three top-level arguments, with up to three sub-arguments supporting each of those top-level arguments. 
+
+4. Recursively apply this approach, ensuring each argument summarizes its at-most-three sub-arguments. 
+
+5. Order the arguments within each group by descending importance.","written communication,pyramid principle,structure",https://staffeng.com/guides/present-to-executives,Clear Communication,1WdDcjl4w3O6DtZdEyi7
+What are questions that can be used to measure code quality?,"* What percentage of the code is statically typed?
+* How many files have associated tests?
+* What is test coverage within your codebase?
+* How narrow are the public interfaces across modules?
+* What percentage of files use the preferred HTTP library?
+* Do endpoints respond to requests within 500ms after a cold start?
+* How many functions have dangerous read-after-write behavior? Or perform unnecessary reads against the primary database instance?
+* How many endpoints perform all state mutation within a single transaction?
+* How many functions acquire low-granularity locks?
+* How many hot files exist which are changed in more than half of pull requests?","quality,engineering leadership",https://staffeng.com/guides/manage-technical-quality,Engineering Leadership,1caGlmF09OzQXhLdyAlb
+What are the eight fallacies of distributed architectures?,"1. The network is reliable
+2. Latency is zero
+3. Bandwidth is infinite
+4. The network is secure
+5. The network topology never changes
+6. There is only one administrator
+7. Transport cost is zero
+8. The network is homogeneous",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,1lCAVNLxKcGV8NazIIYP
+What are the advantages of a data warehouse?,"* Centralized consolidation of data
+* Dedicated analytics silo provides isolation","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,2XyPEyqNMawOaA2RsuQm
+When to use *mediator pattern*?,"* When it’s hard to change some of the classes because they are tightly coupled to a bunch of other classes.
+
+* When you can’t reuse a component in a different program because it’s too dependent on other components.
+
+* When you find yourself creating tons of component subclasses just to reuse some basic behavior in various contexts.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,2b9FPtJFk6XryqCvezxN
+What are the benefits of moving to a service-based architecture before moving to a microservice architecture?,"* Allows architects to determine granularity of services, i.e., which domains can stay coarse-grained, and which require further breaking apart.
+* No need to break apart the database.
+* No need for operational automatization (e.g., containerization).
+* It is a technical migration, meaning there is rarely a need to involve business stakeholders, change the organisation, or change the testing and deployment environments.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,2bMiSxNsFznY8juvCUGd
+What are the six main data disintegrators?,"* Change control - how many services are impacted by a database table change
+* Connection management - can the database handle the connections needed from multiple distributed services
+* Scalability - can the database scale to meet the demands of the services accessing it
+* Fault tolerance - how many services are impacted by a database crash or maintenance downtime
+* Architectural quanta - is a single shared database forcing the architecture into an undesirable single architecture quantum
+* Database type optimization - can I optimize the data by using multiple database types","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,2kFN3UTC68ofQwyi9dz5
+What are *ephemeral environments*?,"Ephemeral environments are environments meant to last for a short amount of time, then discarded. They are **a measure to accelerate the software development cycle**.","software engineering,testing",https://www.bunnyshell.com/blog/what-are-ephemeral-environment,Effective Engineering,2n2wwhjfw5mqa1HKsHpX
+What is the *mediator pattern*?,It is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,2vheSTb2rthXc8dXMMsS
+What is First Contentful Paint?,The First Contentful Paint (FCP) metric measures the time from when the page starts loading to when any part of the page's content is rendered on the screen.,"web vitals,performance,measurement",https://web.dev/fcp/,Web App Architecture,3FN51DvMZqLhx5qM6its
+When to use the *state pattern*?,"* When you have an object that behaves differently depending on its current state, the number of states is enormous, and the state-specific code changes frequently.
+
+* When you have a class polluted with massive conditionals that alter how the class behaves according to the current values of the class’s fields.
+
+* When you have a lot of duplicate code across similar states and transitions of a condition-based state machine.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,3Mjr5DTV2usDQp5xy9Hj
+Name eight different types of databases.,"* Relational - store relational data in tables
+* Key-value - retrieve a value based on a key
+* Document - store full documents, e.g., JSON or XML
+* Graph - store data as nodes connect by edges (both can have attributes)
+* Column family (or wide column / big table) - each column is a *name-value* pair, where *name* is called a *column-key*, *value* is called *column-value*, and the primary key of a row is called *row key*
+* NewSQL - NoSQL databases with features from relational, e.g., ACID
+* Cloud-native - a wide variety of database types, e.g. Snowflake, Datomic
+* Time-series - store a value with a timestamp and augment with tags","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,3Q9uEE6h1Q1J1mBMUPc1
+What is deployment risk?,The risk of breaking something else in the code when deploying a new feature or a bug fix.,software architecture,Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,3VzYdNSl7xdC2rVq9NCh
+What is mutation testing?,Mutation testing is a type of software testing in which certain statements of the source code are changed/mutated to check if the test cases are able to find errors in source code.,"software engineering,testing",https://www.guru99.com/mutation-testing.html,Software Architecture,3jko5WUbCT3QWWPjlBQ5
+What role does melatonin play in the circadian rhythm?,"Melatonin is a circulating messenger that the circadian rhythm uses to communicate to the body that it is night. When melatonin is released into the body it helps the organism know it is time to sleep. Melatonin does not, however, generate sleep.","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,46DLrEEHnxuK9NlEZm2p
+How can one turn unreasonable software into reasonable software?,"We make unreasonable software reasonable by turning each *belief* into either a *behavior* or a *property*. 
+
+*Behaviors* are aspects of the software that can be validated empirically against an environment. 
+
+*Properties* are aspects of the software that can be validated statically or through local exercise.","migrations,quality",https://lethain.com/reclaim-unreasonable-software/,Engineering Leadership,4BRkV3EskfD2LmvuEaem
+What should be analyzed when determining service granularity?,*Granularity disintegrators* (when should I consider breaking services apart?) and *granularity integrators* (when should I consider putting services back together?).,"software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,4LX58mLiTzxtsyT2EkkA
+What three guiding principles for successful communication?,"**Principle 1. Set Your Communication Goal.**
+
+A goal has three major parts: information, emotion, and action. The best metric of success is: Is your audience leaving knowing what you want them to know? Feeling how you want them to feel? And doing what you want them to do?
+
+**Principle 2. Structure your message.** 
+
+Using: What, So What, Now What.
+
+**Principle 3. The Art of the Paraphrase.**
+
+Using Paraphrasing to move a conversation forward.",guiding principles,Think Fast Talk Smart Podcast,Clear Communication,4VfzyovLv1iNk54OtzlR
+When to use the *memento/snapshot pattern*?,"* When you want to produce snapshots of the object’s state to be able to restore a previous state of the object.
+
+* When direct access to the object’s fields/getters/setters violates its encapsulation.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,4b0F5RKdu5hbQUZTkl2X
+Why is estimation important for software development?,"**Resource Allocation:** Estimations help prevent under- or over-commitment of resources. You don't want to leave your team stranded in a sea of unfinished tasks, nor do you want them twiddling their thumbs because you thought it'd take six months to build a simple feature. Get your estimations right, and you'll have a well-oiled machine of a development team.
+
+**Collaboration:** Estimations create a shared understanding of the project size among team members and stakeholders. When everyone's on the same page about what needs to be done and when it's due, collaboration is more effective, and your team can focus on what they do best - writing kickass code.
+
+**Sanity Check:** Estimations help you, as an engineering manager or startup founder, to maintain a semblance of sanity in the face of constant deadlines and deliverables. By knowing how long tasks should take, you can make informed decisions about priorities, allocate resources effectively, and maybe even get some sleep at night. A proper Gantt chart of deliverables can alleviate stress on the weekend.","estimation,planning,software development",https://vadimkravcenko.com/shorts/project-estimates,Effective Engineering,4hIYdKkjBIt03EM3OsQn
+What are examples (7) of operational architecture characteristics?,"* Availability 
+* Continuity (disaster recovery capability)
+* Performance 
+* Recoverability 
+* Reliability/safety 
+* Robustness 
+* Scalability","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,4whVKzHQQFCUHmRZSE5O
+What are the disadvantages of a data mesh?,"* Requires contract coordination with the data product quantum
+* Requires async communication and eventual consistency","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,51jgpW6BYnGuhzGW9yeR
+What is *deployability*?,"The ease, frequency and risk of deployment.",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,56o0uydF7qiKnhTLzDwn
+What is the *frozen caveman anti-pattern*?,"A behavioral anti-pattern where an architecture always revert back to their pet irrational concern for every architecture. 
+
+It is important to understand the difference between genuine and perceived technical risk.",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,5XSlVrln0FsHLnrgphsz
+What are the disadvantages of choreographed coordination?,"* Distributed workflow 
+* State management
+* Error handling
+* Recoverability","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,5cOXLBmA4i3PNdTKLvno
+What is the *flyweight pattern*?,It is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,5kv87nyYswjV9rS3Ukjk
+What are the three disadvantages of technical partitioning?,"* Higher degree of global coupling
+* Developers may have to duplicate domain concepts
+* Higher coupling on data level","software architecture,partitioning",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,5nfAxJ3omhx3D0rbrWda
+What are the trade-offs with tactical forking?,"Benefits:
+* Teams can start working right away with little up-front analysis.
+* Easier to delete code than to extract it.
+
+Shortcomings:
+* Resulting services will contain large amount of latent code.
+* Code inside new service will inherit all problems with original code.
+* Inconsistencies might arise from different naming of shared components, making it hard to identify common code.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,5rYIGxPQZuPIhENrZMvg
+What are seven reasons carrots and sticks do not work?,"1. They can extinguish intrinsic motivation. 
+2. They can diminish performance. 
+3. They can crush creativity. 
+4. They can crowed out good behavior. 
+5. They can encourage cheating, shortcuts, and unethical behavior. 
+6. They can become addictive. 
+7. They can foster short-term thinking.",motivation,Drive by Daniel Pink,Motivation,5thsGhPRejUvSCOnzF6j
+What is the rule of thumb when it comes to data ownership for services?,The service that performs write operations on the table owns it.,"software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,63PVpouLGjf5XOdJwZcA
+What is the *adapter pattern*?,It is a structural design pattern that allows objects with incompatible interfaces to collaborate.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,67X1V4nqCr3RbAvjHvmH
+What is a tactic to combat hallucinations?,"First ask the model to find the relevant information, then ask it to answer the question based on the relevant information.","prompt engineering,limitations",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,6Ex6hYtk36Jm6w1vvJF9
+What fitness functions for governance can be implemented as part of the *Create Component Domains Pattern*?,* All namespaces under <root namespace node> should be restricted to <list of domains>,"software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,6n0TJ169Ygq6fEiczOl4
+What are the advantages of a data lake?,"* Less structured than a data warehouse
+* Less up-front transformation
+* Better suited for distributed architectures","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,6xgzke7eyIlECjL0u4PY
+What is the *Gather Common Domain Components Pattern*?,"The purpose of the pattern is to identify and collect common domain logic and centralize into a single component. The component can become either a shared service or a shared library.
+
+Applying this pattern is mostly a manual process, but hints can be found by investigating filenames and e.g., if a class is found to be shared among several components.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,70SDL04a3wy7oeOb989V
+What is the *common closure principle*?,*Gather into components those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different times and for different reasons.*,"software architecture,cohesion",Clean Architecture by Robert C. Martin,Software Architecture,73EFWEVyU6GlwgkhAGe6
+What are the two main data integrators?,"* Data relationships - are there foreign keys, triggers or views that form close relationships between the tables
+* Data transactions - is a single transactional unit of work necessary to ensure data integrity and consistency","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,752rXCR2O08BCGSIs7G7
+What is the *the common reuse principle*?,*Do not force users of a component to depend on things they do not need.*,"software architecture,cohesion",Clean Architecture by Robert C. Martin,Software Architecture,7681xNzfvI18zDEMFqFq
+When to use the *proxy pattern*?,"* Lazy initialization (virtual proxy). This is when you have a heavyweight service object that wastes system resources by being always up, even though you only need it from time to time.
+
+* Access control (protection proxy). This is when you want only specific clients to be able to use the service object; for instance, when your objects are crucial parts of an operating system and clients are various launched applications (including malicious ones).
+
+* Local execution of a remote service (remote proxy). This is when the service object is located on a remote server.
+
+* Caching request results (caching proxy). This is when you need to cache results of client requests and manage the life cycle of this cache, especially if results are quite large.
+
+* Smart reference. This is when you need to be able to dismiss a heavyweight object once there are no clients that use it.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,7OBE6LTBngkpC9nnPIuv
+What is the *state pattern*?,It is a behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,7SozRcwy2Ie0rBfXegIt
+What is the *design payoff line*?,"In the *Design Stamina Hypothesis*, the design payoff line is the amount of functionality below which it is possible to trade off design quality for time to market.","software architecture,technical debt",https://martinfowler.com/bliki/DesignPayoffLine.html,Software Architecture,7nvO1XTL4P5QU3703nkq
+What four kind of filters exist in the *pipeline architecture style*?,"* Producer - starting point of a process.
+* Transformer - accepts input, performs a transformation on the data and forwards it to the outbound pipe (*map* in functional programming).
+* Tester - Accepts input, tests a set of criteria, then optionally produces output (*reduce* in functional programming). 
+* Consumer - The termination point for a pipeline flow.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,87w4ieU58F7oNd3AfHyx
+What is regression testing?,"Regression testing (rarely, non-regression testing) is re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change. If not, that would be called a regression.","software engineering,testing",https://en.wikipedia.org/wiki/Regression_testing,Software Architecture,8GBKbNMjTvPWmz4qVAnY
+What is the *the user-first* principle?,"The most important UX principle is understanding users. Understanding users involves researching and analyzing your target audience’s needs, preferences, and behaviors. By understanding your users, you can design products that meet their needs and solve their problems. This principle involves conducting user research, creating user personas, and performing usability testing to ensure your product is user-friendly and effective.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,8GSkLzCcIKfQnBtyWuz4
+What is the Cumulative Layout Shift?,CLS is a measure of the largest burst of layout shift scores for every unexpected layout shift that occurs during the entire lifespan of a page. Should be 0.1 or less.,"web vitals,performance,measurement",https://web.dev/cls/,Web App Architecture,95F9W1zNDoosj6oT0RK7
+What are *structural design patterns*?,"Structural design patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.","design patterns,structural patterns",https://refactoring.guru/design-patterns,Design Patterns,A9lSdsp51PTWouAgLQCl
+What is software architecture?,"The combination of structure, architectural characteristics, architectural decisions and design principles.",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,ADweJhxM4hCOVYKlLVyu
+When to use the *facade pattern*?,"* When you need to have a limited but straightforward interface to a complex subsystem.
+
+* When you want to structure a subsystem into layers.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,APfBSGa9GVwGjN0931ML
+What is a state machine?,A pattern that describes all possible paths that can exist within a distributed architecture. It can be used to managed the state of a workflow instead of issuing *compensating updates* and/or using *stamp coupling*.,"software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,AhqtGr1Day2tbnqNm71z
+When to use the *builder* pattern?,"* To get rid of a “telescoping constructor”.
+
+* When you want your code to be able to create different representations of some product (for example, stone and wooden houses).
+
+* To construct *composite trees* or other complex objects.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,AmOvvinpD0OuSrWviTeb
+What should be analyzed when decomposing data?,*Data disintegrators* (drivers that justify breaking apart data) and data integrators (drivers that justify keeping data together).,"software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,AmxH7G4EkqnBNe1mO3OQ
+What are the advantages of consumer-driven contracts?,"* Allow loose coupling between services 
+* Allow variability in strictness 
+* Evolvable","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,AsnbfueZk874RlheZRtS
+What are the disadvantages of a data warehouse?,"* Extreme partitioning of the domain knowledge
+* Integration brittleness
+* Complexity
+* Limited functionality for intended purpose","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,B3ysKYt2RqXKBgIv5CKm
+What are two pros and three cons of data sovereignty per service?,"Pros
+* Change management (teams can change the schema without affecting other domains)
+* Performance (each team can use the database type optimized for their use case)
+
+Cons
+* Performance (issue can happen when services require large amounts of data)
+* Bad data quality (referential integrity cannot be maintained across domain, which might result in poor quality data)
+* Bigger/more complex services (all database code/logic must be moved to the service layer)","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,B6JXnXXTKsziKxTM6N8s
+What is the second law of software architecture?,*Why* is more important than *how*.,software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,B7ysYjf4EnOAbynjT7ry
+What is cognitive distortion?,"A cognitive distortion is an exaggerated or irrational thought pattern involved in the onset or perpetuation of psychopathological states, such as depression and anxiety.","mental health,cognitive distortion",https://en.m.wikipedia.org/wiki/Cognitive_distortion,Mindfulness,B8IPsr3wnU9NveaxfDR1
+What metrics does Laura Tacho suggest a scaling company start with?,"* **Deployment frequency**
+
+* **Lead time** – it’s easier to maintain a fully automated CI/CD pipeline than to add it later, trust me!
+
+* **Developer onboarding** – I usually measure “time to first commit” or a perceptive metric asking “how long until you felt you were up to speed”
+
+* **Number of incidents**
+
+* **Satisfaction** with developer tools and working environment","engineering productivity,metrics,dora,space",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,B9hL4X6fjz7tXbKsEPAA
+What is a data domain?,"A data domain is a collection of coupled database artifacts - tables, views, foreign keys, and triggers - that are all related to a particular domain and frequently used together within a limited functional scope.
+
+There can be no relationships between artifacts in different data domains.","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,BJ5rWroKhYUhwjHdL19E
+What is the *design stamina hypothesis*?,"Design activities certainly do take up time and effort, but they payoff because they make it easier to evolve the software into the future. 
+
+You can save short-term time by neglecting design, but this accumulates technical debt which will slow your productivity later. 
+
+Putting effort into to the design of your software improves the stamina of your project, allowing you to go faster for longer.
+
+Imagine a graph with cumulative functionality on the y-axis and time on the x-axis. Then draw one linear line and one line with diminishing returns. Where they meet is the design payoff line.","software architecture,technical debt",https://martinfowler.com/bliki/DesignStaminaHypothesis.html,Software Architecture,BKqbci6r8bZose5ntHos
+What is the fourth level of mind?,"The Simultaneous Mind
+
+Awake awareness embodied is when spacious awake awareness remains spacious and primary but also knows itself as inherently within, including the alive energy in the body and seeing from the very subtle mind. The simultaneous mind is able to experience emptiness, fullness, boundlessness, and distinction.","meditation,open-hearted awareness,buddhism,happiness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,BNF6pFZmtmcSnsvdxTDj
+What are the important ingredients to protect REST APIs?,"* Input Validations
+* CORS
+* Rate limiting
+* TLS
+* Idempotence
+* Auth
+* Logging","security,rest,api",https://blog.devgenius.io/best-practice-and-cheat-sheet-for-rest-api-design-6a6e12dfa89f,Software Security,BSitXeqRLPpVBrWfQrEm
+What are *QUANTS*?,"Five components of engineering productivity defined by Google:
+
+** Quality of the code** 
+What is the quality of the code produced? Are the test cases good enough to prevent regressions? How good is an architecture at mitigating risk and changes?
+
+**Attention from engineers**
+How frequently do engineers reach a state of flow? How much are they distracted by notifications? Does a tool encourage engineers to context switch?
+
+**Intellectual complexity**
+How much cognitive load is required to complete a task? What is the inherent complexity of the problem being solved? Do engineers need to deal with unnecessary complexity?
+
+**Tempo and velocity**
+How quickly can engineers accomplish their tasks? How fast can they push their releases out? How many tasks do they complete in a given timeframe?
+
+**Satisfaction**
+How happy are engineers with their tools? How well does a tool meet engineers’ needs? How satisfied are they with their work and their end product? Are engineers feeling burned out?","engineering productivity,quants",https://medium.com/oreillymedia/measuring-engineering-productivity-a6da8605ffae,Effective Engineering,BT4DpU3YShPfVKgWB456
+What is the *Horror Story Pattern*?,"A pattern that is asynchronous, atomic and choreographed. Don't do it. The pattern features medium coupling, very high complexity, low availability and medium scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,Bmm2CTXl1grk83qr8Jdy
+What four parts should people have autonomy over in motivation 3.0?,"* Task
+* Time
+* Technique 
+* Team",motivation,Drive by Daniel Pink,Motivation,C6SdYcEO8ayng06SbRDK
+What is the TEB cycle?,"TEB stands for thoughts, emotions and behavior. It is a way to understand what's happening in the brain, and to slow down the brain so you’re more equipped to break the spinning cycle of anxiety. 
+
+Just the pause itself is helpful. You’re activating your prefrontal cortex, the thinking part of your brain, you’re slowing down the hijack by the limbic system.","mental health,cognitive distortion",https://www.tenpercent.com/meditationweeklyblog/anxiety,Mindfulness,CJ15SGO4in2ho4UIOA9I
+What is the *navigation* principle?,"Navigation involves designing simple user interfaces to browse and comprehend. Navigation entails offering a clear hierarchy of information, clear and consistent labeling, and logical content organization. Navigation also entails clearly stating calls to action and delivering feedback on user activities to aid users in understanding their location within the interface.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,CbKtTDuxTWoG8EkZpTMR
+When to use the *composite/object tree pattern*?,"* When you have to implement a tree-like object structure.
+
+* When you want the client code to treat both simple and complex elements uniformly.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,DS3MeusAbb5JMQnEikl3
+What are two types of *top-level partitioning*?,"* Modular
+* Layered","software architecture,partitioning",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,EKT09qLrOUUkSadVMmhB
+What four measures does Will Larson use to measure *engineering impact*?,"* **# big bets**. These are new, differentiated features released to users. While some parts of this are a shared goal across pretty much all organizations within the company, we hold ourselves accountable as one of (if not the) core constraints to delivery.
+
+* **# experiments**. How many features and optimizations have we tested, with a target distribution for winning, neutral, and losing outcomes. There is a set target to help balance quantity and ambition.
+
+* **# fires**. How many incidents have we had? We’re not trying to drive this to a target, rather are trying to avoid a slope change. Overall, I do believe fires are important to factor into overall productivity as a countervailing measure.
+
+* **1-2 technical investments**. How many technical investments or explorations are we doing? Organizations have a limited bandwidth to absorb technical changes, so we grade ourselves on having a few but not many.","impact,measurement,engineering",https://lethain.com/measures-of-engineering-impact/,Effective Engineering,EM106ECwuYduA1xLHjJE
+What does *BASE* stand for in transactions?,"* Basic availability - all services in a distributed transaction are expected to be available to participate
+
+* Soft state - the situation in a distribution transaction where a request has started but not yet completed 
+
+* Eventual consistency - given enough time all parts of a distributed transaction will complete successfully","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,EQ5n2P1kDG2KrqzFe9vY
+What are the disadvantages of loose contracts?,"* Contract management - risk of misspelled names, missing key-value pairs, etc. 
+* Requires fitness functions - to address challenges with contract management, fitness functions are required, eg consumer-driven contracts","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,EVD9V3MTEzvMJBDvpxae
+What is the *reuse/release equivalent principle*?,"*The granule of reuse is the granule of release.*
+
+Classes and modules that are grouped in a module should be releasable together. It should make sense that they are grouped, both for users and developers.","software architecture,cohesion",Clean Architecture by Robert C. Martin,Software Architecture,EaPfrsKySHqRPpGhCNMU
+What are the four possible approaches to the joint data ownership scenario?,"* Table split technique - break the table into two separate tables
+* Data domain technique - create a shared data domain to which the table (but not the services!) belong
+* Delegate technique - one service is assigned ownership, the other services write indirectly to the table through the owner service
+* Service consolidation technique - merge the services into one who then owns the table","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,F4C0nsMgx4NDS3G6KzIl
+Which five ideas underpin effective strategy for software development?,"* Testability
+* Deployability
+* Speed
+* Controlling the Variables
+* Continuous Delivery","software engineering,strategy,performance",Modern Software Engineering by David Farley,Effective Engineering,F8ePKYUNUxn4jIvwPA7G
+Why is it important to consider styling in *micro frontends*?,"Because styling from different micro frontends can collide and override the styling of other elements on the page.
+
+Approaches to mitigating this include BEM, SASS, CSS modules, CSS-in-JS or shadow DOM.","software architecture,micro frontends",https://martinfowler.com/articles/micro-frontends.html,Software Architecture,FSUSlJopJ9Xv287hic8a
+How can we develop *grit*?,"* Find out what interest you. 
+* Once you found an interest go all in. Engage in focused practice and set clear goals. 
+* Think about the big picture. Why are you doing the thing your doing? Your purpose?
+* Cultivate a growth mindset.","grit,motivation",A slight change of plan podcast: Made not born,Motivation,Fegd4nbQYy0S5ZKt8oqL
+Do the *DORA* metrics measure the productivity of teams and/or individuals?,"No, they aren’t intended to measure the productivity of teams and certainly never to measure individuals' productivity. 
+
+They began as a way to benchmark DevOps adoption across the industry and measure the *performance* of delivery practices.","engineering productivity,dora,metrics",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,Fivl9Be2dcAbNoWkdZhB
+How to measure *mean time to recovery (MTTR)*?,"At the very basic level, MTTR is a measurement of the average (mean) total time elapsed between when the defect impacts production and the time when that defect is repaired for all customers. 
+
+MTTR = downtime/number of incidents","engineering productivity,dora,metrics",https://lauratacho.com/blog/how-do-you-actually-measure-mttr,Effective Engineering,Fni37ujVIXJtfMVsLzgS
+What are the advantages of mutation testing?,Mutation testing is a powerful way to test the accuracy and effectiveness of a software’s test suite.,"software engineering,testing",,Software Architecture,FuaVvqhGXN6nc9yDzPbJ
+When to use the *visitor pattern*?,"* When you need to perform an operation on all elements of a complex object structure (for example, an object tree).
+
+* To clean up the business logic of auxiliary behaviors.
+
+* When a behavior makes sense only in some classes of a class hierarchy, but not in others.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,GAEgBMstyOJDDoE1jaAs
+Is it generally a good idea to include information in contracts that a service might eventually need?,"No, this is typically an anti-pattern, which creates unnecessary coupling for little benefit. Strive to keep contracts at a “need to know” level.","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,GUEbkoIKVDu8qK2JeIFZ
+What are the business drivers of modularity?,"* Competitive advantage
+* Speed-to-market
+* Agility","software architecture,modularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,GYApzRNu6z7LC6fvFmyB
+What are three architecture decision anti-patterns?,"* Covering your assets - avoiding or deferring the decision out of fear of making the wrong choice.
+
+* Groundhog day - a decision is not properly justified and communicated, leading it to be discussed over and over again.
+
+* Email-driven architecture - decisions are effectively communicated using e.g., email, but not documented properly, leading to people forgetting or losing overview of the decisions made.",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,GbIpIF0UXO9zKTzkWCFO
+What five capabilities in *culture* drive improvements in software delivery performance?,"* Support a generative culture (as outlined by Westrum).
+* Encourage and support learning.
+* Support and facilitate collaboration among teams.
+* Provide resources and tools that make work meaningful.
+* Support or embody transformational leadership (comprised of five factors: vision, intellectual stimulation, inspirational communication, supportive leadership, personal recognition).","software engineering,performance,culture",Accelerate by Nicole Forsgren et al.,Effective Engineering,GmXNZdXhTC6QW4Y01RNL
+What is the purpose of *component tests*?,"To limit the scope of the exercised software to a portion of the system under test, manipulating the system through internal code interfaces and using test doubles to isolate the code under test from other components.","testing,quality assurance,component tests",https://martinfowler.com/articles/microservice-testing/fallback.html,Testing Strategies,GpOui5aMNKIYlDMGuSJ5
+What are five possible approaches to integrate micro frontends into one page?,"* Server-side template composition
+* Build-time integration (not recommended as it creates a **lockstep release process**)
+* Run-time integration via iframes
+* Run-time integration via JavaScript (recommended due to flexibility)
+* Run-time integration via *Web Components*","software architecture,micro frontends",https://martinfowler.com/articles/micro-frontends.html,Software Architecture,Gz2Kr8YxAerle3f0Ngu8
+What is the *microkernel architecture style*?,"It is a monolithic architecture that consists of two components: *core system* and *plug-ins*. Application logic is divided between independent plug-ins and the basic core system, providing extensibility, adaptability and isolation of application features and custom processing logic.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,GzmD5h0Tfu2aEBadyc2z
+What are the advantages of a data mesh?,"* Highly suitable for microservices architectures
+* Follows modern architecture principles and engineering practices
+* Allows excellent decoupling between analytical and operational data
+* Carefully formed contracts allow loosely coupled evolution of analytical capabilities","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,H2Fgd6ij4cx5RtrzYMF7
+When to use the *flyweight pattern*?,* Only when your program must support a huge number of objects which barely fit into available RAM.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,H32aWv5Zp7YAgYoYbVYY
+What are the sections of an ADR?,"*ADR: A short noun phrase containing the architecture decision*
+
+*Context*
+One- or two-sentence description of the problem, and a list of the alternative solutions.
+
+*Decision*
+State the architecture decision and provide a detailed justification of the decision.
+
+*Consequences*
+Briefly describe any consequences after the decision is applied, and also discuss the trade-offs that were considered.","software architecture,architectural decision records",Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,H9BiukYwObbXIOLvsgJI
+When to use the *layered architecture style*?,"Works well for small, simple applications or websites. It is familiar to many and features low cost. It can also be a good starting point if requirements for the best style are very unclear.
+
+It is not a style well suited for larger and more complex applications, since maintainability, testability, agility and deployability usually suffers with the layered architecture style.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,HZehayAR6l1w3MykGDe5
+When should one use the *factory* method?,"* When you don’t know beforehand the exact types and dependencies of the objects your code should work with.
+
+* When you want to provide users of your library or framework with a way to extend its internal components.
+
+* When you want to save system resources by reusing existing objects instead of rebuilding them each time.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,HbWbbIG3MbGz00msz9v8
+What is the *prototype* pattern?,It is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.,"design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,HgUEeZH058fe5XJqkdsu
+What are some tactics for *writing clear and specific instructions*?,"1. Use delimiters
+2. Ask for structured output
+3. Check whether conditions are satisfied (i.e., give instructions like ‘if this is satisfied do X, if not do Y’)
+4. Few shot prompting (i.e., give it some examples of successful tasks)","principles,prompt engineering",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,HshwLAu0GzPhpBcZCOAB
+What fitness functions for governance can be implemented as part of the *Gather Common Domain Components Pattern*?,"* Find common names in leaf nodes of component namespace
+* Find common code across components","software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,I5OWVlasnNkk07FKhbmI
+How can the effectiveness of software development teams be measured?,"* Stability
+* Throughput","software engineering,measurement,performance",Modern Software Engineering by David Farley,Effective Engineering,I9UULDB1S5JpCEZf4mJk
+What are *technical vectors*?,"Effective organizations marshal the majority of their efforts toward a shared vision. 
+
+If you plot every technical decision as a vector on a grid (i.e., a technical vector), the more those vectors point in the same direction, the more you'll accomplish over time.","quality,engineering leadership",https://staffeng.com/guides/manage-technical-quality,Engineering Leadership,IKpdJwqGGTRcLfuNYT0c
+What are the trade-offs for the sidecar pattern as a reuse pattern?,"### Pros
+* Offers a consistent way to create isolated coupling
+* Allows consistent infrastructure coordination
+* Ownership per team, centralized, or some combination
+
+### Cons
+* Must implement a sidecar per platform
+* Sidecar component may grow large/complex","software architecture,reuse code",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,ILP6CzdVPi5D0JHMx1Rk
+What are four patterns for distributed data access?,"* Interservice communication pattern - ask the service owner for the data
+* Column schema replication pattern - replicated columns between tables
+* Replicated caching pattern - replicate a distributed cache of the table
+* Data domain pattern - create a share data domain (i.e., a shared schema)","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,IZcz3RAzzbe2PgRkg9e4
+When to use *service-based architecture style*?,"In general a very pragmatic architecture that works for many use cases. It fits domain-driven design well, is relatively scalable but less complex than microservices as to the monolithic database allows for ACID transactions.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,JTSF7BJ44hKXD2bHdzO8
+What is the fifth level of mind?,"The Open-Hearted Awareness 
+
+Open-hearted awareness is the knowing from heart mindfulness. The feeling of not being a separate self leads to wellbeing and interconnectedness with all people and all things as a field of love and wisdom, in the flow of ordinary life.","meditation,happiness,buddhism,open-hearted awareness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,JV7XBOfTPgjLpFIN89EU
+What is the best way to manage shared component libraries in *micro frontends*?,"Letting anyone contribute to the library but having a designated custodian (person or team) who is responsible for ensuring the quality, consistency, and validity of those contributions.","software architecture,micro frontends",https://martinfowler.com/articles/micro-frontends.html,Software Architecture,JWen4jo4AHQzHqFY6GBf
+What are the five principles behind SOLID?,"* Single Responsibility: A class should only have one responsibility.
+* Open-Closed: Software objects (classes, modules, etc.) should be open for extension but closed for modification, allowing predictable, maintainable code.
+* Liskov Substitution: Subtypes must be substitutable for their base types without affecting the correctness of the program.
+* Interface Segregation: Code shouldn’t be dependent on giant interfaces in which they don’t use all of it. Instead, packages should both contain and allow smaller, specific interfaces to be importable.
+* Dependency Inversion: High-level modules should not depend on low-level modules; both should depend on abstractions, fostering a more flexible and decoupled system design.","software architecture,solid","https://en.wikipedia.org/wiki/SOLID
+https://engineercodex.substack.com/p/7-simple-habits-of-the-top-1-of-engineers",Software Architecture,JkytHFeZiptdfFO5Z8lo
+What is *rate limiting*?,"In computer networks, rate limiting is used to control the rate of requests sent or received by a network interface controller. It can be used to prevent DoS attacks and limit web scraping.
+
+Research indicates flooding rates for one zombie machine are in excess of 20 HTTP GET requests per second, legitimate rates much less.","security,rest,api",https://blog.devgenius.io/best-practice-and-cheat-sheet-for-rest-api-design-6a6e12dfa89f,Software Security,JmEDwm4IAG6W7bxpoM0s
+How does the domain concern *time and budget* translate to architecture characteristics?,"* Simplicity
+* Feasibility","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,JqCktB2foDOOFBDwK1uM
+What is *dependency injection*?,"It is a design pattern in which an object or function receives other objects or functions that it depends on. A form of inversion of control, dependency injection aims to separate the concerns of constructing objects and using them, leading to loosely coupled programs.","software engineering,design patterns",https://en.wikipedia.org/wiki/Dependency_injection,Design Patterns,JuStczkE2lW7N3DfseGw
+When to use the *chain of responsibility/command pattern*?,"* When your program is expected to process different kinds of requests in various ways, but the exact types of requests and their sequences are unknown beforehand.
+
+* When it’s essential to execute several handlers in a particular order.
+
+* When the set of handlers and their order are supposed to change at runtime.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,KEdZC2exH9gKDpxSYwSX
+When to use the *abstract factory* pattern?,"When your code needs to work with various families of related products, but you don’t want it to depend on the concrete classes of those products—they might be unknown beforehand or you simply want to allow for future extensibility.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,KMTA8fzaAFzTExejQgY7
+What is the *abstract factory* pattern?,It is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.,"design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,Ki8iSecwr544hK7zio08
+How can throughput be tracked for a software development team?,"* Lead Time: How long it takes for a single-line change to go from “idea” to “working software”. (A measure of the efficiency of the development process)
+
+* Frequency: How often changes are deployed into production. (A measure of speed)","software engineering,measurement,performance",Modern Software Engineering by David Farley,Effective Engineering,L6yDz5mJnzUoRzoK5G98
+What is the purpose of *integration tests*?,To verify the communication paths and interactions between components to detect interface defects.,"testing,quality assurance,integration tests",https://martinfowler.com/articles/microservice-testing/fallback.html,Testing Strategies,L8BFLVOQpCwge97uIp5T
+What is the *memento/snapshot pattern*?,It is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,LF32xwz60ox0O4Yk9pC4
+What is the *feedback* principle?,"Feedback is a UX principle that involves providing clear and timely feedback to users about their actions. Feedback means providing visual cues, such as animations or notifications, to indicate when a user has completed an action or an error has occurred. Feedback also means providing clear and concise messages to users to help them understand the results of their actions and how to correct any errors.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,LIsyargREBXuR23tzazx
+What is distance from main sequence?,"It defines how close a code artifact is to an ideal relationship between *abstractness* and *instability*.
+
+It is defined as:
+
+`$D = | A + I - 1 |,$`
+
+where **A** represents *abstractness* and **I** represents *instability*.
+
+The closer to the idealized line, i.e., **D** close to zero, the better the balance of the code.","software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,LMlURWrgFS8m2Px2Tx7r
+What is the *request-reply* messaging in *event-driven architecture*?,"It is a way to achieve pseudo-synchronous communication. The implementation uses a request queue and a reply queue. To start the request, the producer sends an event to the request queue, then does a blocking wait on the reply queue, waiting for the response from the consumer.
+
+The two primary techniques for this is to use either (i) a *correlation ID* contained in the message header, or (ii) a *temporary queue* for the reply queue.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,LSLwtvHVXo9WkAm1LO4L
+What are the four reasons for applying the granularity integrators?,"* Database transactions - data integrity and consistency
+* Workflow - fault tolerance, performance and reliability
+* Shared code - maintainability
+* Data relationships - data integrity and correctness","software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,LXhdpZiUpTdqlCAt9Fu4
+What are five common methods for prioritizing backlogs?,"* Stack Ranking
+* MoSCoW
+* Kano
+* Story Mapping
+* Weighted Scoring","prioritization,product management",The Product Podcast,Product Management,LYVZ0yVwpN5xLFGaI5c9
+How does the circadian rhythm impact the body?,"The rhythm impacts several biological functions, e.g., mood and emotions, metabolic rate, body temperature, urine produced and the release of numerous hormones.","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,LedKqaVRFTpNz2XNtPnF
+What is Process-S: The sleep pressure signal of adenosine?,"It is the sleep drive, and one of the two processes that regulates sleep. Adenosine is a chemical that builds up during the day and creates a pressure for the body to sleep. It can be muted by caffeine.","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,LqHzkqAbXWmWbGkUfC5C
+What is the *Phone Tag Saga Pattern*?,"A pattern that is synchronous, atomic and choreographed. Due to the choreography the services must include more logic to manage the workflow (compared to orchestrated). The pattern features high coupling, high complexity, low availability and low scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,LqVLPEUU9rCtopgHurAd
+What are the two advantages of technical partitioning?,"* Clearly separates customisation code
+* Aligns more closely to the layered architecture pattern","software architecture,partitioning",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,LvL0hd8yrenrLWMl4kNt
+What are the advantages of loose contracts?,"* Highly decoupled 
+* Easier to evolve","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,LxI7Y4IYTGhlJZo9MuRp
+What are the four Brahma-vihara?,"* Loving-kindness (Pāli: mettā, Sanskrit: maitrī) is active good will towards all.
+
+* Compassion (Pāli and Sanskrit: karuṇā) results from metta, it is identifying the suffering of others as one's own.
+
+* Sympathetic joy (Pāli and Sanskrit: muditā): is the feeling of joy because others are happy, even if one did not contribute to it, it is a form of sympathetic joy.
+
+* Equanimity (Pāli: upekkhā, Sanskrit: upekṣā): is even-mindedness and serenity, treating everyone impartially.","meditation,happiness,buddhism",https://en.wikipedia.org/wiki/Brahmavihara,Mindfulness,M29wUKmUdMHfANZRJA5c
+What is the purpose of *end-to-end tests*?,"To verify that a system meets external requirements and achieves its goals, testing the entire system, from end to end.","testing,quality assurance,end-to-end tests",https://martinfowler.com/articles/microservice-testing/fallback.html,Testing Strategies,MaOyADdhCduVjSeWtn9Q
+What is the component identification flow?,"1. Identify initial components
+2. Assign requirements to components
+3. Analyse roles and responsibilities
+4. Analyse architecture characteristics
+5. Restructure components -> Goto 3",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,MkFtvYxc2dt0hFvJQVzE
+What is product-led growth?,"Product-led growth (PLG) is a business methodology in which user acquisition, expansion, conversion, and retention are all driven primarily by the product itself.","Product,Tech,Growth",https://www.productled.org/foundations/what-is-product-led-growth,,Mx7pEUQM5cSD89SLbIgy
+What questions should you ask to figure out whether to use component-based decomposition or tactical forking?,"1. Is modularity justified? No -> Keep monolith.
+2. Is codebase decomposable? No -> Keep monolith.
+3. Are the components definable? No -> Use *tactical forking*.
+4. Use *component-based decomposition*.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,NHsw7ZhhyqyXRtgija5I
+What is a *tuple space* in *space-based architecture*?,"* Each space is like a 'channel' in a message broker system that components can choose to interact with.
+
+* Components can write a 'tuple' or 'entry' into a space, while other components can read entries/tuples from the space, but using more powerful mechanisms than message brokers.
+
+* Writing entries to a space is generally not ordered as in a message broker, but can be if necessary.
+
+* Designing applications using this approach is less intuitive to most people, and can present more cognitive load to appreciate and exploit.","software architecture,architecture styles",https://en.wikipedia.org/wiki/Space-based_architecture,Software Architecture,NSaxm77bR51vZ4O9CaLK
+What four capabilities in *product and process* drive improvements in software delivery performance?,"* Gather and implement customer feedback.
+* Make the flow of work visible through the value stream.
+* Work in small batches.
+* Foster and enable team experimentation.","software engineering,performance,product,process",Accelerate by Nicole Forsgren et al.,Effective Engineering,NdWLc2BbZfZifBXYC2o4
+What is the *pipeline architecture style*?,"The pipeline architecture (known from e.g., *bash*) has two components - *pipes* and *filters*. Pipes form the communication channel between filters. It is typically unidirectional and point-to-point. Filters are self-contained components, usually stateless and should perform one task only.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,NipnGHq6MLwtc7y9ffuC
+What are strategic questions you can ask yourself and your team?,"How are things currently going with [xyz project], 1-10 scale? What would move it one point?
+
+How satisfied are you with [the amount of feedback you are getting]? What would move it one point?
+
+How would you rate the usefulness of our 1-on-1s? What would move it one point?
+
+How clear do you feel about your priorities? What would move it one point?","strategy,gap analysis",https://emmasleep.eu.cultureamp.com/app/skills-coach/activity/72B60D1B1A5013E15530639DAE66DC580CB460E4B3F31FF068FF354059AF640C52137C4BD4D433454734A97030430AA5,Engineering Leadership,NyuumFauLCacSfvd0ZuZ
+What are the trade-offs for shared library as a reuse pattern?,"### Pros
+* Ability to version changes
+* Shared code is compile-based, reducing runtime errors
+* Good agility for code changes
+
+### Cons
+* Dependencies can be difficult to manage
+* Code duplication in heterogeneous codebases
+* Version deprecation can be difficult
+* Version communication can be difficult","software architecture,reuse code",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,OA2bvNFwEbPwYgXiBpsB
+What is a framework for iterative prompt development?,"1. Idea
+2. Implementation 
+3. Experimental result
+4. Error analysis","prompt engineering,iterative prompt development",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,OCNOaV3pKrEDx9nUw0IO
+What eight capabilities in *continuous delivery* drive improvements in software delivery performance?,"* Use version control for all production artifacts.
+* Automate your deployment process.
+* Implement continuous integration.
+* Use trunk-based development methods.
+* Implement test automation.
+* Support test data management.
+* Shift left on security.
+* Implement continuous delivery.","software engineering,continuous delivery,performance",Accelerate by Nicole Forsgren et al.,Effective Engineering,OIuS4bPWqaP92Aq2WKPe
+What are the six patterns to be applied when doing component-based decomposition?,"1. Identify and Size Components Pattern
+2. Gather Common Domain Components Pattern
+3. Flatten Components Pattern
+4. Determine Component Dependencies Pattern
+5. Create Component Domains Pattern
+6. Create Domain Services Pattern","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,OOHdS6CsWsfsaPS2s5Tv
+What is the *decorator/wrapper pattern*?,It is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,OZuIF274pIznjrGlbwpZ
+What are three patterns for managing the workflow state in choreographed coordination?,"* Front controller pattern - one domain service owns the state
+* Stateless choreography - no transient state is kept at all, so all services must be queried to know the state 
+* Stamp coupling - state information is stored in the message contract sent between services","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,OfQld2nCia3dMxKOGPQT
+What are seven approaches to managing technical quality?,"1. fix the **hot spots** that are causing immediate problems
+2. adopt **best practices** that are known to improve quality
+3. prioritize **leverage points** that preserve quality as your software changes
+4. align **technical vectors** in how your organization changes software
+5. **measure technical quality** to guide deeper investment
+6. spin up a **technical quality team** to create systems and tools for quality
+7. run a **quality program** to measure, track and create accountability","quality,engineering leadership",https://staffeng.com/guides/manage-technical-quality,Engineering Leadership,PCo71BDGNhZ6uvz16eep
+Where is the biological clock located?,"It is located in the middle of the brain, i.e., in the suprachiasmatic nucleus.","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,PT9JEEyfJt7BhTHMIt5q
+What are five good questions to ask when evaluating a piece of code?,"* Is the tech deployable?
+* Is it testable?
+* Is it possible to control the variables?
+* Is it fast enough for continuous delivery?
+* If needed to interface with, does it force a specific programming model?","software engineering,evaluation",Modern Software Engineering by David Farley,Effective Engineering,PV5CnTVC6xlVfx3gz6h7
+What are 5 heuristics to measure managerial impact?,"* Execution - does your team consistently deliver promises or excuses? 
+* People management - is your team a revolving door or a nursery where careers blossom?
+* Team development - does your team have two years of experience or one year of experience repeated twice? 
+* Strategic vision - where do you see your team in a quarter, six months, and a year?
+* Organizational influence - when was your team’s last contribution to the larger organization?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,Puvh8ouJNhgCuaDhSHMd
+What five principles do we need to become experts at managing complexity?,"* Modularity
+* Cohesion
+* Separations of Concerns
+* Abstraction
+* Loose Coupling","software engineering,performance,strategy,software architecture",Modern Software Engineering by David Farley,Software Architecture,Q8sRdR1YAermavJAFF4F
+What is Process-C: The circadian rhythm of the suprachiasmatic nucleus?,"It is the wake drive, and one of the two processes that regulates sleep. The circadian rhythm, also called biological clock, is impacted by sunlight and aligns roughly with the length of a day.","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,QO5Dl8cdZBE0YvJn0Wql
+What are the disadvantages of strict contracts?,"* Tight coupling - a contract change might force all services using it to change
+* Versioned - without a clear deprecation strategy or trying to support too many versions quickly become an integration nightmare","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,Qhx5GIeCHm1zBBrLyGD0
+How should cross-application communication be handled in *micro frontends*?,"The general rule is to keep it at a minimum, but three potential approaches are:
+
+* Custom events
+* React model of passing callbacks and data downwards
+* Use the address bar as a communication mechanism","software architecture,micro frontends",https://martinfowler.com/articles/micro-frontends.html,Software Architecture,QwNJw7nsjv8oNGKhaNdw
+What is Time to Interactive?,The TTI metric measures the time from when the page starts loading to when its main sub-resources have loaded and it is capable of reliably responding to user input quickly.,"web vitals,performance,measurement",https://web.dev/tti/,Web App Architecture,R7JcYwBiUrU6iNjjciWU
+What are good questions to ask to evaluate *organizational influence*?,"* Are you sharing best practices with your colleagues? 
+* Are you trying to improve the larger organization? 
+* Do you seek to learn and adopt best practices from peers? 
+* Do you reinvent the wheel? 
+* Do you know your first team?
+* What’s your ‘brand’ in the org?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,REKSwf2Cye8leKB5puhT
+Why does cognitive distortion arise when we are anxious?,"When we get anxious, the amygdala, the threat center of our brain, turns on, which in turn turns off our prefrontal cortex, our thinking brain. 
+
+As a result, we see the world in a distorted way. We start to misinterpret information as threat, and believe that our thoughts are facts, instead of just thoughts. 
+
+We may feel that something bad is about to happen, and so we start to feel more and more anxious.","mental health,cognitive distortion",https://www.tenpercent.com/meditationweeklyblog/anxiety,Mindfulness,REtZLt67FhFumTsKefbI
+What are three different types of mutation testing?,"1. Value mutations: changes the value either to a much larger value or to a much smaller value to detect errors in the program.
+
+2. Decision mutations: arithmetic, relational and logical operators are changed to detect the errors in the program.
+
+3. Statements mutations: statements are changed either by deleting the statements or by duplicating the lines to detect errors in the program","software engineering,testing",https://www.google.com/amp/s/www.softwaretestingclass.com/mutation-testing-advantages-and-disadvantages/amp/,Software Architecture,RLubwAPjv8zZpsx6aD0v
+What is the Total Blocking Time?,The Total Blocking Time (TBT) metric measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.,"web vitals,performance,measurement",https://web.dev/tbt/,Web App Architecture,RQzSwMf7P5RKPJeMoiCS
+What are the five steps of decomposing monolithic data?,"1. Analyze database and create data domains
+2. Assign tables to data domains, move tables
+3. Separate database connections to data domains
+4. Move schemas to separate database servers
+5. Switch over to independent database servers","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,Rce5vTBxG5yjrNEVOJn2
+What five approaches do we need to become experts at learning?,"* Iteration
+* Feedback
+* Incrementalism
+* Experimentation
+* Empiricism","software engineering,performance,strategy",Modern Software Engineering by David Farley,Effective Engineering,RoqIFeJES1aApjd7kaIb
+What is the *Create Component Domains Pattern*?,The purpose of the pattern is to logically group components together so that a more coarse-grained domain service can be created when breaking up an application. This is a manual process and can be effectively manifested by the component namespaces (directories) in the codebase.,"software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,SvyTCBJlgXqn1AR6zrv2
+What are the four disadvantages with orchestration coordination?,"* Responsiveness 
+* Fault tolerance 
+* Scalability 
+* Service coupling","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,Sz5AVMgKyq3v0miJkwTB
+What is the *Create Domain Services Pattern*?,"The purpose of the pattern is to finally break apart the application and deploy separate domain services. 
+
+Only initiate this pattern after *all* of the components domains have been identified and refactored. This helps reduce the amount of modification needed for each service when moving components.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,T3rG2ZKMesjMQ1zDVeKv
+What is *cyclomatic complexity*?,"It is a way to measure the complexity of code.
+
+`$CC = E - N + 2$,`
+
+where **N** is lines of code (nodes), and **E** possible decisions (edges). They higher the value, the higher the complexity.","software architecture,measurement",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,TOFZDgkS6aO4pTzsckr0
+What are two challenges with *event-driven architecture*?,"* Complex error handling
+* Preventing data loss","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,TWupmysUrn76cB2deMr9
+What is the third level of mind?,"The Awake-Aware Mind
+
+Local awareness knows spacious awareness as itself through awareness of awareness. The awake-aware mind level can be called spacious awareness. The experience is contentless, boundless, and timeless. Spacious awareness then can witness from this open sky of awareness back to our contents of mind through effortless awareness.","meditation,open-hearted awareness,buddhism,happiness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,TgykXHpLK9slDgyMeWdX
+What is the *Fairy Tale Saga Pattern*?,"A pattern that is synchronous, exhibits eventual consistency and is orchestrated. Generally the pattern offers fairly good trade-offs. The pattern features high coupling, very low complexity, medium availability and high scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,TpXXn2345sCCfS8SNV4y
+How is your IQ affected by frequent interruptions compared to being to focus on one thing?,"Frequent interruptions will lower your IQ with up to 10 points. 
+
+In summary, when you jump between multiple tasks, you will do all of them much worse compared to if you focus on each separately until they are done.","productivity,cognition,intelligence",Jordan Harbinger Podcast #707,Life Hacks,U2ClsrFefdilYIvlDgXA
+What metrics does Laura Tacho suggest a bigger company implement?,"* DORA metrics
+
+* Developer attrition
+
+* Satisfaction with developer tools and working environment","engineering productivity,dora,space,metrics",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,U2fRpsMN8QoVHto4BDi3
+What are three ingredients to successful communication?,"* Clarify your logic
+* Think about what the audience might hear, not just what you say
+* Be all parts of yourself (e.g., strict person, humorous person)","strategy,communication",Think fast talk smart podcast,Clear Communication,U5RJ5h4ChKy8aqIX1iZq
+What is the *technical debt quadrant*?,"A quadrant that categorises tech debt in a quadrant with reckless/prudent on the x-axis and deliberate/inadvertent on the y-axis.
+
+* Quadrant 1 (prudent/deliberate) - we must ship now and deal with the consequences.
+* Quadrant 2 (reckless/deliberate) - we don't have time for design.
+* Quadrant 3 (reckless/inadvertent) - what's layering?
+* Quadrant 4 (prudent/inadvertent) - now we know how we should have done it.","software architecture,technical debt",https://martinfowler.com/bliki/TechnicalDebtQuadrant.html,Software Architecture,U6OBnbtbmJleeLyh8nNo
+What is the *Anthology Saga Pattern*?,"A pattern that is asynchronous, exhibits eventual consistency and is choreographed. Works best for simple, mostly linear workflows, where very high throughput is required. The pattern features very low coupling, high complexity, high availability and very high scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,UItgYi8nPAX0jdqiOtj1
+What are the eight main types of cognitive distortion?,"* All-or-nothing thinking
+* Jumping to conclusions
+* Emotional reasoning 
+* Should/shouldn't and must/mustn't statements
+* Gratitude traps
+* Blaming others
+* Minimizing-mislabeling
+* Assuming the worst","mental health,cognitive distortion",https://en.m.wikipedia.org/wiki/Cognitive_distortion,Mindfulness,UTW2HdgRszJK6Us2w7ks
+What is the First Input Delay?,"FID measures the time from when a user first interacts with a page (i.e. when they click a link, tap on a button, or use a custom, JavaScript-powered control) to the time when the browser is actually able to begin processing event handlers in response to that interaction. Should be 100ms or less.","web vitals,performance,measurement",https://web.dev/fid/,Web App Architecture,UfC32nMNAn1ygO2Eil9O
+What is software engineering?,"The application of an empirical, scientific approach to finding efficient, economic solutions to practical problems in software.",software engineering,Modern Software Engineering by David Farley,Effective Engineering,UwTpDW3kfO1E7kfrezTF
+What are the advantages of choreographed coordination?,"* Responsiveness 
+* Scalability 
+* Fault tolerance 
+* Service decoupling","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,V6YVG496iXZFtFdWBy7y
+What is an important limitation of ChatGPT?,"Hallucinations, i.e., the model gives an answer that sounds plausible but is wrong.","prompt engineering,limitations",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,VGxZcuQrnwsBUwOAsw1D
+What is motivation 2.0?,"Rewarding and activity will get you more of it. Punishing an activity will get you less of it. 
+
+Also knows as carrots and sticks.",motivation,Drive by Daniel Pink,Motivation,VIRn1E53L9nvDLu5RdN6
+What is *nemawashi*?,To gather feedback from and align with your peers and stakeholders before the presentation. This is effective at reducing surprises. Some of your peers should have experience presenting to the executives and will have useful feedback on improvements.,nemawashi,https://staffeng.com/guides/present-to-executives,Clear Communication,VX6F5qIsUbRi4Xsipbvw
+What does *ACID* stand for in transactions?,"* Atomicity - all changes in a request either succeed or they are all rolled back
+
+* Consistency - data can never be left in an inconsistent state after a transaction (including respecting contraints)
+
+*  Isolation - the changes of a transaction are never visible until after the transaction has finished 
+
+* Durability - once a transaction succeeds it is guaranteed that all changes are permanent (regardless of future system failures)","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,VYHC1d8yCyMhiSlEyFIe
+How does the domain concern *mergers and acquisitions* translate to architecture characteristics?,"* Interoperability
+* Scalability
+* Adaptability
+* Extensibility","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,ViisbV7lNdHy1ngznrVi
+What are the three interlocking forces at play in dynamic coupling?,"* Communication: synchronous or asynchronous.
+* Consistency: atomicity or eventual consistency.
+* Coordination: orchestrator or choreography.","software architecture,dynamic coupling",Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,Vja3uLGRbZ8pRrDVgcBU
+When to use the *microkernel architecture style*?,"For applications where user customisation and feature extensibility are important. The style does not scale well and is not fault tolerance, making it less suitable for larger and more complex use cases.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,VjbNAlL10D6wWYOCtKK3
+When should shared data be considered a granularity integrator?,"* Specific shared domain functionality
+* Frequent shared code changes
+* Defects / changes in business rules that cannot be versioned (if changes that must be applied to all services at the same time happens often, consider consolidating these)","software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,VtNBbnnhlelxKWZkJY5b
+What is the *command pattern*?,"It is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,W47LbYelYz0BMnTVJiiN
+What are the two possible coordination patterns for distributed workflows?,Orchestration and choreography.,"software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,WFfWodj28oa5ApDxTBeb
+Is procrastination a time management problem or emotional problem?,"Contrary to common belief, procrastination is more of an emotional problem than a time management problem. There are unpleasant emotions associated with a task which cause avoidance of doing the task.","procrastination,perfectionism",Ten Percent Happier Podcast: Adam Grant on Perfectionism,Motivation,WWWrSPcIfmpQfKEVryOr
+What is the *Goals/Signals/Metrics (GSM)* framework?,"A framework from Google to guide metrics creation. The steps are: create goals first, then signals, and finally metrics.
+
+* A **goal** is a desired end result. It’s phrased in terms of what you want to understand at a high level and should not contain references to specific ways to measure it.
+
+* A **signal** is how you might know that you’ve achieved the end result. Signals are things we would like to measure, but they might not be measurable themselves.
+
+* A **metric** is proxy for a signal. It is the thing we actually can measure. It might not be the ideal measurement, but it is something that we believe is close enough.","engineering productivity,gsm,framework",https://medium.com/oreillymedia/measuring-engineering-productivity-a6da8605ffae,Effective Engineering,WldSWIJnZri4e5GXNTWR
+What are two principles for effective prompting?,"1. Write clear and specific instructions 
+2. Give the model time to think","principles,prompt engineering",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,X3D4vl9BwbXLefSpSpda
+What metrics can be used to measure if a codebase is decomposable?,"* Afferent coupling - incoming connections to a code artifact.
+* Efferent coupling - outgoing connections to a code artifact.
+* Abstractness - the ratio of abstract artifacts (classes, interfaces, etc.) to concrete artifacts implementation classes.
+* Instability - the ratio of efferent coupling to the sum of efferent and afferent coupling.
+* Distance from the main sequence - how close a code artifact is to an ideal relationship between abstractness and instability.","software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,XQGe79P2kBfH5oO84QSY
+When to use the *observer pattern*?,"* When changes to the state of one object may require changing other objects, and the actual set of objects is unknown beforehand or changes dynamically.
+
+* When some objects in your app must observe others, but only for a limited time or in specific cases.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,Xf3qe39tGCeK8CvJbKwi
+What are the trade-offs for shared service as a reuse pattern?,"### Pros
+* Good for high code volatility
+* No code duplication in heterogeneous codebases
+* Preserves the bounded context
+* No static code sharing
+
+### Cons
+* Versioning changes can be difficult
+* Performance is impacted due to latency
+* Fault tolerance and availability issues due to service dependency
+* Increased risk due to runtime changes","software architecture,reuse code",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,Xh580si5Uk2Vwfsnw6bP
+What are the DORA metrics?,"* Deployment frequency: how often does the team release to production?
+
+* MTTR (Mean Time to Recovery): how long does it take to recover from a failure in production?
+
+* Change failure rate: of all releases, how many contain a defect?
+
+* Lead time: how long does it take for a commit to get to production?","engineering productivity,dora,metrics",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,XmNQdGcygBfrJc2aqvna
+What are the two processes that regulate sleep?,"* Process-C: The circadian rhythm of the suprachiasmatic nucleus (wake drive)
+* Process-S: The sleep pressure signal of adenosine (sleep drive)","sleep,health,biology",Why We Sleep by Matthew Walker,Bodily Understanding,Xq8iCTV6QorOICH9OSbr
+What is the *SPACE* framework?,"It's a framework for understanding developer productivity. It groups activities and metrics under five dimensions:
+
+* **Satisfaction and well-being** (fulfillment and happiness of developers)
+
+* **Performance** (quality and impact of code written)
+
+* **Activity** (count of actions or outputs in the workflow, e.g., PRs, commits, releases, on-call participation)
+
+* **Communication and collaboration** (how people and teams communicate and work together)
+
+* **Efficiency and flow** (ability to complete work or make progress on it with minimal interruptions or delays)","engineering productivity,space,metrics",https://queue.acm.org/detail.cfm?id=3454124,Effective Engineering,YJFZQIQvN60tFBAI5m9S
+What are good questions to ask to evaluate *people management*?,"* How do you run your 1:1s?
+* How well do you know each of your reports?
+* Are opportunities aligned with individual career aspirations?
+* What patterns emerge after reviewing your most recent three departures?
+* What energizes your team? What drains your team?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,YL0q7VGDiABqA02qk7lW
+What are the lessons learned regarding engineering productivity from Laura Tacho?,"* Align on the definition of developer productivity. 
+
+* Stop chasing a single metric.
+
+* Balance self-reported data with automatic measurements.
+
+* Avoid vanity metrics. 
+
+* Don’t let tools make decisions about what’s important for your team.
+
+* Use metrics to measure system efficiency, not individual performance.
+
+* Use DORA metrics to benchmark performance. 
+
+* Development teams want to be consulted about their productivity and performance, not just informed of it.","engineering productivity,dora,space,metrics","https://newsletter.pragmaticengineer.com/p/engineering-productivity,https://leaddev.com/reporting-metrics/five-engineering-kpis-consider-your-next-board-meeting",Effective Engineering,YZp9HNNpBjKKjvWBm1tW
+What is the *basal cost* of a feature?,"A weekly or monthly cost only associated with the existence of this feature in our system.
+
+Naming comes from the Basal Metabolic Rate of a human body.","software engineering,cost",https://www.eferro.net/2021/02/basal-cost-of-software.html,Effective Engineering,YhxoyvfKezylAowmAgIe
+How does the domain concern *competitive advantage* translate to architecture characteristics?,"* Agility
+* Testability
+* Deployability
+* Scalability
+* Availability
+* Fault tolerance","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,YmEv0EjITi5I605jCwD0
+What are 9 multipliers for boosting team productivity?,"* Observability (Time To detect, Time to repair, defect rates)
+* Dev loop (Development rate)
+* Test Stability (Defect rates, Merge rates, Pass rates)
+* Release Agility (Lead time, cycle time, deploy rates)
+* Documentation (Lead time, blockers)
+* Automation (Time to mitigate, Time to repair)
+* Experimentation (Experimentation rate)
+* Hiring + Onboarding (Development rate, Time to the first PR)
+* Infra as code	(Time to mitigate, lead time)","engineering productivity,multipliers",https://abdulapopoola.com/2022/01/03/9-multipliers-for-boosting-your-teams-productivity/,Effective Engineering,Yuzg6QKJdLzz7jzXR0TQ
+What is an architectural fitness function?,Any mechanism that performs an objective integrity assessment of some architecture characteristic or combination of architecture characteristic.,"software architecture,architectural fitness function",Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,Yx6RMjoqUOb4iTtKXAFX
+What is *risk storming*?,"A collaborative exercise to identify architectural risk. It can be broken down into three activities:
+
+* Identification - participants individually assess risks (impact x probability) along an architectural dimension/characteristics
+* Consensus - put post-its with risks on relevant part on an architecture diagram, focus discussion on high risks and difference, with the aim of reaching consensus
+* Mitigation - once consensus is reached, discuss how the risks identified can be prevented or mitigated",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,Z5GwITKBi5cFQ02Ht0Vd
+What is the *Fantasy Fiction Saga Pattern*?,"A pattern that is asynchronous, atomic and orchestrated. Not a very attractive combination. The pattern features high coupling, high complexity, low availability and low scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,ZJDjiopitNmvQyaA2sao
+What is the *microservices architecture style*?,"A distributed architecture which is heavily inspired by *domain-driven design*. The architecture consists of single-purpose services, with their own (i.e., isolated from other services) databases. The services typically communicate with each other asynchronously. Each services models a domain or workflow, i.e., a *bounded context*. The style is highly scalable, elastic and evolutionary.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,ZPByfxwxRWNJo9QGSCh6
+What is the *singleton* pattern?,"It is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,Za1cvbEmHQWSAdPL76j6
+What are the six reasons for applying the granularity disintegrators?,"* Service scope - single-purpose services with tight cohesion
+* Code volatility - agility (reduces testing scope and deployment risk)
+* Scalability - lowers costs and faster responsiveness
+* Fault tolerance - better overall uptime
+* Security access - better security access control to certain functions
+* Extensibility - agility (ease of adding new functionality)","software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,ZxNsG3ZXIdTdGN3osQhY
+What is the *composite/object tree pattern*?,It is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.,"design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,aAlvjH1YLNd1a5z7XOY2
+What fitness functions for governance can be implemented as part of the *Create Domain Services Pattern*?,* All components in <some domain service> should start with the same namespace,"software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,aHTnwR7EAnPBVY3QYlMl
+How does the domain concern *user satisfaction* translate to architecture characteristics?,"* Performance
+* Availability
+* Fault tolerance
+* Testability
+* Deployability
+* Agility
+* Security","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,aMcK0Rd3uJ9f2LZLg6eL
+What are three monolithic architecture styles?,"* Layered
+* Pipeline
+* Microkernel","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,af7igRGlctMmPeJSVvki
+What is the three step process for modern trade-off analysis?,"1. Find what parts are entangled together.
+2. Analyze how they are coupled to one another.
+3. Assess trade-offs by determining the impact of change to interdependent systems.",software architecture,Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,afc8OeuuuYRGOEkiYP3q
+What are Buddha’s five strategies to tackle distraction?,"* Replace unwholesome thoughts with wholesome thoughts 
+* Examine the danger in the thoughts
+* Avoid it, ignore it and forget it
+* Investigate the causes of distraction
+* Apply determination and resolve","meditation,happiness,buddhism",10 percent happier podcast,Mindfulness,ag9q5Aett7ckHPPXme7c
+What is abstractness?,"The ratio of abstract artifacts (classes, interfaces, etc.) to concrete artifacts (implementation classes).
+
+Abstractness, **A**, is defined as:
+
+`$ A = \dfrac{\sum M_a} { \sum M_c + \sum M_a },$`
+
+where **Ma** represents abstract elements and **Mc** represents concrete elements.
+
+A higher value of **A** indicates the code has more abstract elements and is therefore easier to understand.","software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,awIg9b3imkYWP4SHU8FI
+What are the six main granularity disintegrators?,"* Service scope and function - is the service doing too many unrelated things?
+* Code volatility - are changes isolated to only one part of the service?
+* Scalability and throughput - do parts of the service need to scale differently?
+* Fault tolerance - are there errors that cause critical functions to fail within the service?
+* Security - do some parts of the services need higher security levels than others?
+* Extensibility - is the service always expanding to add new contexts? Only apply this if it is known ahead of time that additional functionality is planned (e.g., payment methods).","software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,awNd45B0EDE1jpSIyFK6
+What is *testability*?,The ease and completeness of testing.,"software architecture,testing",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,b8xsoDeTtVUlsequQTlR
+What is the purpose of *unit tests*?,To exercise the smallest pieces of testable software in the application to determine whether they behave as expected.,"testing,quality assurance,unit tests",https://martinfowler.com/articles/microservice-testing/fallback.html,Testing Strategies,bDTc1FRqN9SQo9GyhzuI
+What are the five criteria of an emotionally immature adult?,"* Ego-centric
+* Poor empathy
+* Poor self-reflection 
+* Fear of emotionally intimacy 
+* Affective realism (approaching life so that reality is what I feel it is)",emotionally immature adults,Ten Percent Happier Podcast,Mindfulness,bXo0MGv294LHijoBmsQW
+What is the *orchestration-driven service-oriented architecture style*?,"An outdated, distributed architecture style which uses a layered approach, where the guiding mantra is *reuse*. It has five main components: business services, enterprise services, application services, infrastructure services and an enterprise service bus containing the orchestrator engine.
+
+The drawback of the strong focus on reuse, through the enterprise service bus, creates highly coupled and complex systems, which eventually hits maintainability, testability and deployability.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,bbde37VbsRAgEF9qEO6j
+What are the disadvantages of mutation testing?,"* Time consuming
+* Never enough (it must be combined with other tests, e.g., unit tests)","software engineering,testing",,Software Architecture,bhJOdRc3AuwUdSXBfz31
+What is the *facade pattern*?,"It is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,bp3N4Y6m4HA18P0N9Ib2
+What is the *Flatten Component Pattern*?,"The purpose of the pattern is to ensure that components are not built on top of one another, but rather flattened and represented as leaf nodes in a directory structure or namespace. This simplifies the process of breaking components into services later.
+
+The pattern is applied by either moving components into root namespaces, i.e., merging, or creating new components (leaf nodes) out of the orphaned classes.
+
+Important terms:
+* Component - collection of classes grouped within a leaf node namespace.
+* Root namespace - a namespace node that has been extended by another namespace node.
+* Orphaned classes - classes contained within a root namespace, and hence have no definable component associated with them.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,bvWx10ck5kVP7cUo7INS
+What are four ways to create space for others in discussions?,"* Shift your contribution towards asking questions. Asking the right questions helps avoid missteps, but also makes it easier for more folks to contribute
+
+* If you see someone in the meeting who isn’t participating, pull them into the discussion. It works best to pull exactly one person at a time into the discussion. It gets confusing when you open it up broadly to everyone or even just try to pull two or three people at once
+
+* Be the one to take notes. This helps destigmatize note-taking as “low status” and also frees up an alternative would-be notetaker to contribute more instead. It also gives you something to focus on other than speaking!
+
+* If you realize someone’s missing from the discussion who should be there, be the person to pull them into the next occurrence of the meeting. Talk with the meeting coordinator to let them know why it’s valuable to include them.","creating space,leadership",https://staffeng.com/guides/create-space-for-others,Engineering Leadership,c4QaaDNRInFJTntLqw4E
+What seven factors affect preferred architecture style over time?,"* Observations from the past
+* Changes in the ecosystem
+* New capabilities
+* Acceleration
+* Domain changes
+* Technology changes
+* External factors","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,cZZcm9EAYpBU417AOYRe
+What is the *strategy pattern*?,"It is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,clG8ZQ61ppu3I7MXy7xP
+What is the *Identify and Size Components Pattern*?,"The purpose of this pattern is to identify and catalog the architectural components, and then properly size them.
+
+Catalog the components by:
+
+1. Component name
+2. Component namespace
+3. Percent (relative size as percentage of the whole codebase)
+4. Statements (number of statements, used to determine *Percent*)
+5. Files (total number of source code files)","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,cuaz6cDNEJusqLUIoOVv
+What is the *proxy pattern*?,"It is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,dTuzVygmpEsWtrOka86l
+What are *two-way writeups*?,"A way to improve discussion and decision-making using written documents, by including a way to include and make feedback transparent.
+
+It consists of three parts:
+
+* Main: the written memo
+* Pulse: ask participants to add a sentiment (1-5) and a reflection.
+* Dory: collect questions to discuss, and the possibility to upvote/downvote them.",written communication,https://coda.io/@lshackleton/two-way-writeups-coda-s-secret-to-shipping-fast,Clear Communication,ddPwgNEHQZlpF7jHRBdS
+What is *service-based architecture style*?,"It is a distributed architecture that typically has separately deployed user interface, separately deployed coarse-grained services and a monolithic database.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,diWnp6gtAfISHCXIvV6k
+What are the benefits of *micro frontends*?,"* Incremental upgrades
+* Simple (smaller), decoupled codebases
+* Independent deployment
+* Autonomous teams","software architecture,micro frontends",https://martinfowler.com/articles/micro-frontends.html,Software Architecture,djWU3x4CnyxEDjItvBAM
+What are some examples (9) of cross-cutting architecture characteristics?,"* Accessibility 
+* Archivability
+* Authentication
+* Authorization
+* Legal
+* Privacy
+* Security
+* Supportability
+* Usability/achievability","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,e3KN4A3FL6CNQoCjHhOf
+What is static coupling?,"It defines how services are *wired* together.
+
+It represents how static dependencies resolve within the architecture via contracts. These dependencies include the operating system, frameworks, and/or libraries delivered via transitive dependency management, and any other operational requirement to allow quantum to operate.","software architecture,static coupling",Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,eEWtB9XzDFgUp8fNQAWl
+What three criteria should an *architectural characteristic* meet?,"* Specifies a non-domain design consideration - e.g, operational criteria for success, how to implement requirements, why certain choices were made. 
+
+* Influences some structural aspect of the design - i.e., security could be a characteristic if it forces a certain design on an application, but not if it’s just about general baseline precautions.
+ 
+* Critical or important to application success - for every additional characteristic complexity increases. Therefore important to prioritize the most important.","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,eNh1Kbg9Cy23JEp1h4LV
+What is the *observer pattern*?,It is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,f2fdAKkfmrIxDCL1IjOw
+What is effortless mindfulness?,"Effortless mindfulness is letting go of thoughts, present moments, and attention - opening to a naturally compassionate, nonconceptual awake awareness that is interconnected here and Now.","happiness,meditation,effortless mindfulness",The Way of Effortless Mindfulness by Loch Kelly,Mindfulness,fGJrDXdZKEn1DNoIELsX
+What is the SCQA format which can be used for an effective opening paragraph?,"* **Situation:** what is the relevant context? *Example: We've been falling behind our competition in shipping product features for two years. Last year, we doubled our engineering team but shipped fewer features than the year before.*
+
+* **Complication:** why is the current situation problematic? *Example: We plan to double our engineering team again this year, but based on last year's experience, we think that will decrease velocity further while significantly increasing our organizational budget.*
+
+* **Question:** what is the core question to address? *Example: Should we keep moving forward with our plan to double engineering this year?*
+
+* **Answer:** what is your best answer to the posed question? *Example: We should stop hiring for the next six months and focus on gelling our existing team. Based on progress at that point, we should refresh our hiring plan for the remainder of the year.*","written communication,scqa",https://staffeng.com/guides/present-to-executives,Clear Communication,fVfXOpspEw8iGBACiEtX
+What are proper ways to estimate software projects?,"* Break tasks down into manageable units
+* Use historical data and experience
+* Employ estimation techniques (e.g., planning poker and wideband delphi)
+* Factor in uncertainty with ranged estimates
+* Seek out mentorship and guidance
+* Don’t get influenced by authority
+* Continuously refine estimates
+* Communicate estimates and changes frequently","estimation,planning,software development",https://vadimkravcenko.com/shorts/project-estimates,Effective Engineering,g2rHjClDZvqr0IY1FTFd
+What two parts is the *basal cost* of a feature composed of?,"* The direct impact in the team capacity of the added complexity of this feature (new dependencies, more code to understand, more possibilities for bugs to hide, etc).
+
+* The impact on the cost of the development or evolution of other features due to potential incompatibilities, coupling, etc.","software engineering,cost",https://www.eferro.net/2021/02/basal-cost-of-software.html,Effective Engineering,gSXjLCdETeh7HKMD5Fjc
+Can semantic coupling be improved by implementation coupling?,"No, it can never improve it, only worsen it.","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,geKihySfFGyCsO31fWgc
+What is the *broker topology* in the *event-driven architecture style*?,"In this topology there is no central mediator. Instead messages are distributed in a broadcasting fashion using a message broker. The core components in each workflow are: an initiating event, the event broker, an event processor and a processing event. 
+
+The style works well for relatively simple workflows that benefit from high responsiveness and dynamic control over the processing of an event.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,gncnMamD1cUpjCPqXIki
+When to use the *adapter pattern*?,"* When you want to use some existing class, but its interface isn’t compatible with the rest of your code.
+
+* When you want to reuse several existing subclasses that lack some common functionality that can’t be added to the superclass.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,gxFYGopIAsIpsFMsDL5y
+What six things must an architect be comfortable with when deciding on style?,"* Acquire good understanding of the domain
+* Discover and elucidate architecture characteristics
+* Understand the required data architecture
+* Understand organisational factors which might impact the decision
+* Acquire good knowledge about processes, teams and operational concerns
+* Explore and understand domain/architecture isomorphism","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,gyBi9UxDaSwQ0sHZelRG
+When to use the *template method pattern*?,"* When you want to let clients extend only particular steps of an algorithm, but not the whole algorithm or its structure.
+
+* When you have several classes that contain almost identical algorithms with some minor differences. As a result, you might need to modify all classes when the algorithm changes.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,h0GZtoHV2G1PnPfkyC3L
+What are the four foundations of mindfulness?,"* Kaya - body
+* Vedanā - feeling tone
+* Cittā - mind
+* Dhammā/Dharma - ""righteousness"", ""merit"", ""religious and moral duties""","meditation,happiness,buddhism,mindfulness",https://en.wikipedia.org/wiki/Satipatthana,Mindfulness,hBnlPzShoSkR8zJh1h4g
+What is the layered architecture style?,"It is a style where code is grouped into logical layers, e.g., presentation, business, persistence and database. It is a technically partitioned architecture.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,hF6R6jGExN04JyF6BjWo
+What is the *chain of responsibility/command pattern*?,"It is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,hHfy5VC7QMdjWfMTCUQO
+What is the *iterator pattern*?,"It is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,hSLx9s60xDdHqSxu1VRx
+What are some mistakes to avoid when presenting to leadership?,"* Never fight feedback
+* Don't evade responsibility or problems
+* Don't present a question without an answer
+* Avoid academic-style presentations
+* Don't fixate on your preferred outcome","common pitfalls,leadership presentation",https://staffeng.com/guides/present-to-executives,Clear Communication,hWRxxySATDxl83leLtNv
+What are two common decomposition approaches?,"* Component-based decomposition
+* Tactical forking","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,hXPsJlzEWul26a9zTmWn
+What are good questions to ask to evaluate *execution*?,"* Do you have mechanisms to ensure predictable high-quality outcomes? 
+* Are there clear objective criteria for team performance and output? For example, SLAs, defect rates, customer satisfaction, lead time, and promises kept.
+* Are estimates high, medium, or low confidence?
+* Are the productivity-sapping constraints known? 
+* Is there an efficient and widely accepted way of working on your team?
+* How do partners perceive your team’s execution?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,hdlBDtKpY1T4Ne2Bciw9
+What are the drivers of modularity and how do they relate to each other?,"Competitive advantage is driven by availability, scalability and speed-to-market.
+Speed-to-market is driven by agility.
+Agility is driven by deployability, testability and maintainability.","software architecture,modularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,hjD34a4c0sDbwUfSOG7l
+What are the five levels of mind?,"* Level 1: The Everyday Mind
+* Level 2: Subtle Mind & Subtle Body
+* Level 3: The Awake-Aware Mind
+* Level 4: The Simultaneous Mind
+* Level 5: The Open-Hearted Awareness","meditation,happiness,buddhism,open-hearted awareness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,hqQdUg3r2mIMCRNZomQz
+When to use *space-based architecture style*?,"The style suits architectures that benefit from high scalability, high elasticity and high performance. This is achieved by removing the central database and instead leveraging in-memory data grids.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,iQfTDgNR6kMB9JpahWTt
+When to use the *strategy pattern*?,"* When you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime.
+
+* When you have a lot of similar classes that only differ in the way they execute some behavior.
+
+* To isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
+
+* When your class has a massive conditional statement that switches between different variants of the same algorithm.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,isAabaAFZxrkzJzFWIJc
+What are the fundamental tools to align technical vectors?,"* Give direct feedback.
+* Refine your engineering strategy.
+* Encapsulate your approach in your workflows and tooling.
+* Train new team members during their onboarding.
+* Use Conway’s Law.
+* Curate technology change using architecture reviews, investment strategies, and a structured process for adopting new tools.","quality,engineering leadership",https://staffeng.com/guides/manage-technical-quality,Engineering Leadership,j3Hx2D6QgaEXzA9KtU0r
+What is the first law of software architecture?,Everything in software architecture is a trade-off.,software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,j77y8ErtV6Y7xf0OPz3H
+What is efferent coupling?,The number of outgoing couplings to a code artifact.,"software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,jEWrzL3XGpLhX2QhVH6k
+What five metrics does Laura Tacho suggest to present to the board?,"* Employee ramp time
+
+* Allocation (features vs. bugs vs. maintenance)
+
+* On-time delivery
+
+* Cycle time
+
+* Incident frequency","engineering productivity,metrics","https://leaddev.com/reporting-metrics/five-engineering-kpis-consider-your-next-board-meeting
+https://newsletter.pragmaticengineer.com/p/engineering-productivity",Effective Engineering,jPr70iCPVZdyQJpS7JsS
+What are the three components of motivation 3.0?,"* Autonomy
+* Mastery
+* Purpose",motivation,Drive by Daniel Pink,Motivation,jlkFV968zHLIh8a9WgKX
+What five capabilities in *lean management and monitoring* drive improvements in software delivery performance?,"* Have a lightweight change approval process.
+* Monitor across application and infrastructure to inform business decisions.
+* Check system health proactively.
+* Improve processes and manage work with work-in-process (WIP) limits.
+* Visualize work to monitor quality and communicate throughout the team.","software engineering,performance,lean management,monitoring",Accelerate by Nicole Forsgren et al.,Effective Engineering,kOzjAuYpfdpZwgFU0pbb
+What are *creational design patterns*?,"Creational design patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.","design patterns,creational patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,ksDQOsB4tLE604tGATf4
+What is the relationship between semantic workflow complexity and usefulness of orchestration coordination?,They are positively correlated.,"software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,l9loiHLr0gAanMka9mtj
+When to use the *singleton* pattern?,"* When a class in your program should have just a single instance available to all clients; for example, a single database object shared by different parts of the program.
+
+* When you need stricter control over global variables.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,lGlS0ZeUSrYJNiCkKxYy
+What are the five technical drivers of modularity?,"* Availability
+* Scalability
+* Deployability
+* Testability
+* Maintainability","software architecture,modularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,lOCe7MtYoNHrwSvq4inH
+What are *leverage points*?,"Places where extra investment preserves quality over time, both by preventing gross quality failures and reducing the cost of future quality investments.
+
+The three most impactful points are **interfaces**, **stateful systems**, and **data models**.","quality,engineering leadership",https://staffeng.com/guides/manage-technical-quality,Engineering Leadership,lhyXCINfYzu9fXFFyA2S
+What is tactical forking?,"It is an approach to breaking up a monolith application (when the codebase does not have definable components), where the entire codebase is copied and then each team starts deleting what is not needed for their domain.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,m7FKaLg5HDqBSFpghZYH
+What are five distributed architecture styles?,"* Service-based
+* Event-driven
+* Space-based
+* Service-oriented
+* Microservices","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,mJG1jWf6WGmfO1j4jDgr
+What are possible patterns of reusing code?,"*Reuse is derived via abstraction but operationalized by slow rate of change.*
+
+* Code replication - copy code into each service who requires it
+* Shared library - share an artifact of functionality
+* Shared service - run shared functionality as a separate service
+* Sidecars and service mesh - decouple domain logic from technical / infrastructure logic","software architecture,reuse code",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,mcsgC5LH2prm2Pia7IJO
+What are three ways to model components?,"* Actor/actions approach - identify actors and the actions they perform
+* Event storming - assume events will be used and identify all possible events
+* Workflow approach - model components around workflow (similar to event storming but without assuming an event based system)",software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,mgr2qQeboNSGlPFBvcxP
+What is the *space-based architecture style?*,"It is an approach to distributed computing systems where the various components interact with each other by exchanging tuples or entries via one or more shared spaces (typically some kind of shared memory). 
+
+This is contrasted with the more common *message queuing service approaches* where the various components interact with each other by exchanging messages via a message broker. 
+
+In a sense, both approaches exchange messages with some central agent, but how they exchange messages is very distinctive.","software architecture,architecture styles",https://en.wikipedia.org/wiki/Space-based_architecture,Software Architecture,mr9G2F5QiW4Bjvk95mV3
+What are some tactics for *giving the model time to think*?,"1. Specify steps to complete the task
+2. Instruct the model to work out its own solution before rushing to a conclusion","principles,prompt engineering",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,mrf2YFIp0Jwbgit7DRVi
+What is the *event-driven architecture style*?,"In an event-driven architecture style, services react and take action based on certain events. There are two primary topologies - *mediator topology* and *broker topology*. The style can be combined with other styles, e.g., microservices.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,nGzamHzDyQ1U7uiZopM4
+What is the *Epic Saga Pattern*?,"A pattern that is synchronous, atomic and orchestrated. It mimics the workings of a monolith, and usually requires compensating updates. The pattern features high coupling, low complexity, low availability and very low scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,nS9XuqvPBj6x03KRvyS4
+What are the *Seven Factors of Awakening*?,"In Buddhism, the Seven Factors of Awakening are:
+
+* Mindfulness (sati, Sanskrit smrti). To maintain awareness of reality, in particular the teachings (dhamma).
+* Investigation of the nature of reality (dhamma vicaya, Skt. dharmapravicaya).
+* Energy (viriya, Skt. vīrya) also determination, effort
+* Joy or rapture (pīti, Skt. prīti)
+* Relaxation or tranquility (passaddhi, Skt. prashrabdhi) of both body and mind
+* Concentration, (samādhi) a calm, one-pointed state of mind, or ""bringing the buried latencies or samskaras into full view"".
+* Equanimity (upekkha, Skt. upekshā). To accept reality as-it-is (yathā-bhuta) without craving or aversion.","mindfulness,buddhism,meditation",https://en.wikipedia.org/wiki/Seven_Factors_of_Awakening,Mindfulness,ndMtyfnLOPsAMQb73q01
+What are good questions to ask when evaluating a bet?,"* How does this strategy address our key challenges? 
+* What do we anticipate the impact will be if we deliver on this bet? 
+* How might we know whether we’re successful?
+* Why is now the best time to pursue this strategy?","strategy,bets,leadership",https://coda.io/@lshackleton/quarterly-plus-okrs/big-bets-11,Engineering Leadership,nqUYYImj2wgvQlPc4UPU
+What is the second level of mind?,"Subtle Mind & Subtle Body
+
+Subtle mind is the nonjudgmental, mindful witness of contents of mind and body. Subtle body is when local awareness experiences our body and energy directly from working.","meditation,open-hearted awareness,buddhism,happiness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,o499Kwjt3IzsiRoPA2S1
+What are three central concepts when talking about modularity?,"* Cohesion - a measure of how related parts are to one another. 
+* Coupling - how parts are connected to each other. 
+* Connascence - the *degree* to which something is coupled.","software architecture,modularity",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,o59nGe4t09MhV665rDKL
+What are good questions to ask when you are stuck?,"* What’s another angle I can look from? 
+* What’s the most important thing? 
+* What does success look like?  
+* Who else may be able to help? 
+* What’s important to me about this? 
+* What have I done in the past that is like this? 
+* What would a 10% improvement be? 
+* What’s the next smallest step I can take?",reframing questions,Culture Amp Resilience Quiz,Engineering Leadership,oO2RTtqbBJ5lAoLyKZiP
+What is the *Time Travel Saga Pattern*?,"A pattern that is synchronous, exhibits eventual consistency and is choreographed. Well suited for simple workflows requiring high throughput. The pattern features medium coupling, low complexity, medium availability and high scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,oXzsywhG6lsMlG5dVDGs
+What is instability?,"The ratio of efferent coupling to the sum of efferent and afferent coupling.
+
+Instability, **I**, is defined as:
+
+`$I = \dfrac{C_e}{C_e + C_a},$`
+
+where **Ca** represents efferent (outgoing) coupling and **Ca** represents afferent (incoming) coupling.
+
+A value close to 1 means the codebase is unstable, since there is a high risk of breaking the codebase due to high coupling. A value close to 0 means the code is either stable or rigid. If the codebase has low instability but consists mainly of concrete elements (i.e., *abstractness* is low), then it is rigid.","software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,og4AthtlnXSsrapbqvQw
+What is the *Determine Component Dependencies Pattern*?,"The purpose of the pattern is to analyze the incoming and outgoing dependencies between components to determine what the resulting service dependency graph might look like after breaking up the monolithic application. 
+
+A component dependency is formed when a class from one component interacts with a class from another component. There are tools that can support in applying this pattern.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,ohtVPh1e4aTgeqrbOsak
+What are design patterns?,Design patterns are typical solutions to commonly occurring problems in software design.,design pattern,https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,oktfJxZmtG7eWI3JK069
+What is the *template method pattern*?,It is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,olAgmjMG1HShcHsqO0Xj
+What are *behavioral design patterns*?,Behavioral design patterns are concerned with algorithms and the assignment of responsibilities between objects.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,oyIPHwnxyjXnVUniG4mp
+What are some examples (9) of structural architecture characteristics?,"* Configurability 
+* Extensibility
+* Installability
+* Leverageability/reuse
+* Localization
+* Maintainability
+* Portability
+* Supportability
+* Upgradeability","software architecture,architectural characteristics",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,p44YhhUuKRdC9MUlBFVY
+What are three patterns for addressing eventual consistency?,"* Background synchronization pattern - use a separate, external service that periodically checks and keeps data sources in sync
+* Orchestrated request-based pattern - ensure data sources are synchronized during the business request (either through sync calls to the other services or using a dedicated sync orchestrator)
+* Event-based pattern - use messages and async communication to sync data sources","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,p5wl7tx2GDYUj82a1Rce
+What is Time to First Byte?,TTFB is a metric that measures the time between the request for a resource and when the first byte of a response begins to arrive. Should be 800ms or less.,"web vitals,performance,measurement",https://web.dev/ttfb/,Web App Architecture,pVfoNsYVm1C2tpO9iUua
+What are good questions to ask to evaluate *team development*?,"* Are you still solving the same problems from one year ago?
+* Have you targeted recruiting strategy at identified team gaps?
+* How often do people get actionable and objective feedback?
+* How has the delivered value increased in the past 3 – 4 quarters?
+* How many people got promoted over the past year?
+* What lessons did your team learn recently?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,pbeM6l331V1TdyLWjLDe
+What is a data mesh?,"A kind of sidecar for analytical data, designed for distributed architectures. It is an alternative to data warehouses and data lakes. Data mesh rest on four principles:
+
+- Domain ownership of data - data is owned and shared by the domains most familiar with the data.
+
+- Data as a product - data should be shared to consumers with a delightful experience.
+
+- Self-serve data platforms - focus on self-service by e.g., declarative creation of data products, discoverability of data products, usage of graphs (for e.g., data lineage, knowledge).
+
+- Computational federated governance - data product owners create policies for access that are automated and embedded as code in each data product.","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,qNzZ5NstGgDIskyBS2fj
+What is the one disadvantage of domain partitioning?,* Customisation code appears in multiple places,"software architecture,partitioning",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,qmHkFgNRPjAophCW4DAJ
+When to use the *iterator pattern*?,"* When your collection has a complex data structure under the hood, but you want to hide its complexity from clients (either for convenience or security reasons).
+
+* To reduce duplication of the traversal code across your app.
+
+* When you want your code to be able to traverse different data structures or when types of these structures are unknown beforehand.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,qvZFRW0ABRpWmeUqhLCE
+What are twelve tips to improve one's sleep?,"* Stick to a sleep schedule, including on weekends.
+* Exercise regularly, but not late in the evening.
+* Avoid caffeine and nicotine, especially in the evening.
+* Avoid alcoholic drinks before bed.
+* Avoid large meals and beverages late at night.
+* Avoid medicines that delay or disrupt your sleep.
+* Don't take naps after 3 PM.
+* Relax before bed, ideally create a relaxing ritual.
+* Take a hot bath before bed.
+* Keep your bedroom dark, cool and gadget free.
+* Have the right sunlight exposure, i.e., plenty of sun or bright lights in the morning and little light in the evening.
+* Don't lie in bed awake, get up and do something relaxing until you're sleepy.","sleep,health",Why We Sleep by Matthew Walker,Life Hacks,qvvkezGxySCL3wPIjABl
+When to use the *command pattern*?,"* When you want to parametrize objects with operations.
+
+* When you want to queue operations, schedule their execution, or execute them remotely. 
+
+* When you want to implement reversible operations.","design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,qyKzx4kLuOlk9N46Fj0e
+"When do ”if-then” rewards (i.e., carrots) work?","When the task neither inspires nor requires deep-thinking. 
+
+To increase the chance of success, do:
+
+* Offer a rationale why the task is necessary. 
+* Acknowledge that the task is boring. 
+* Allow people to complete the task their own way.",motivation,Drive by Daniel Pink,Motivation,r5EsoonzcWmw0jfi00rJ
+What is the *mediator topology* in the *event-driven architecture style*?,"In this topology there is an event mediator, which manages and controls the workflow for initiating events that require coordination of multiple event processors. The core components are: an initiating event, an event queue, an event mediator, event channels and event processors.
+
+This style works well for more complex workflows, where more control over the event processing is required.","software architecture,architecture styles",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,rDGgDTP9VcLyT8HtTVHg
+What is an architecture quantum?,"An independently deployable artifact with high functional cohesion, high static coupling and synchronous  dynamic coupling.",software architecture,Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,rNC5Hlfccl530lUtpuSl
+What are four capabilities of large language models (LLMs)?,"*Summarizing*
+
+Summarize or extract relevant information from a text. For better answers, give instructions on the purpose of the summary. 
+
+*Inferring*
+
+Extract the sentiment and/or topics of a text. 
+
+*Transforming*
+
+Transform a certain input text to a different output (e.g., translate languages, convert format, adjust tone, check spelling and grammar). 
+
+*Expanding*
+
+Take a shorter piece of text to generate a longer one.","prompt engineering,capabilities",learn.deeplearning.ai/chatgpt-prompt-eng,Prompt Engineering,rUhTrrHkiTexMgsH5kVn
+What is Largest Contentful Paint?,"The Largest Contentful Paint (LCP) metric reports the render time of the largest image or text block visible within the viewport, relative to when the page first started loading. Should be 2.5 seconds or less.","web vitals,performance,measurement",https://web.dev/lcp/,Web App Architecture,rW3txg79XhWViFkUr5FC
+What are the five advantages of domain partitioning?,"* Modelled more closely to business functions
+* Easier to evolve team and organisation around domains
+* Aligns more closely with a modular monolith and microservices
+* Message flow matches the problem domain
+* Easy to migrate data and components to distributed architecture","software architecture,partitioning",Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,rd9HjJMu3sLdKJ1R4mYz
+When to use the *bridge pattern*?,"* When you want to divide and organize a monolithic class that has several variants of some functionality (for example, if the class can work with various database servers).
+
+* When you need to extend a class in several orthogonal (independent) dimensions.
+
+* If you need to be able to switch implementations at runtime.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,s466EKEEksRMBd5fSJdy
+What metrics does Laura Tacho suggest a team looking to improve their delivery speed look at?,"* Number of projects per engineer
+
+* Interruptions or urgent requests per sprint
+
+* Team utilization – do you plan your team at 100% each sprint, hoping to catch up on work, resulting in a deadlock whenever an unplanned request comes in?","engineering productivity,dora,space,metrics",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,s4xu1ZruJiPEj0hvbS5S
+What fitness functions for governance can be implemented as part of the *Flatten Component Pattern*?,* No source code should reside in a root namespace,"software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,sH5Dc3wdn6PbSfiWEsSO
+What is the *Parallel Saga Pattern*?,"A pattern that is asynchronous, exhibits eventual consistency and is orchestrated. Well suited for complex workflows (since it is orchestrated) but with better scalability than e.g., the *Epic Saga Pattern*. The pattern features low coupling, low complexity, high availability and high scalability.","software architecture,transactional sagas",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,t0vJSzXmndbswFC4G8ia
+What is one benefit of *DORA* to leaders outside of software engineering?,"Since DORA metrics are so clearly articulated, they’re very accessible to leaders outside of software engineering.","engineering productivity,dora,metrics",https://newsletter.pragmaticengineer.com/p/engineering-productivity,Effective Engineering,tXFzG7VJLEGfbain9OHg
+What is the *builder* pattern?,It is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.,"design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,ta3CEbaUGGwSlUWOqhwP
+What is the *accessibility* principle?,"Designing products that are accessible to everyone, including users with impairments, is a fundamental tenet of user experience (UX). Accessibility means creating products that can be used by people with visual, auditory, or physical impairments or those who use assistive technologies. Using straightforward language, including alternative text for images, and making products compatible with screen readers and other assistive technology are all part of designing for accessibility.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,tcU7BS60qMstFv73XqyP
+What are consumer-driven contracts?,"Instead of a data provider defining the contract for others to use, the consumers define the contracts, and the producer includes these during build, making sure contract tests are always green.","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,toJql3UQ5wm3aMSxAMRw
+When to use the *decorator/wrapper pattern*?,"* When you need to be able to assign extra behaviors to objects at runtime without breaking the code that uses these objects.
+
+* When it’s awkward or not possible to extend an object’s behavior using inheritance.","design patterns,structural patterns",https://refactoring.guru/design-patterns/adapter,Design Patterns,ujR1wXb303sFyMHbhvgd
+What is a *Gherkin* scenario?,"Gherkin is a plain-text language with a simple structure. 
+
+It is designed to be easy to learn by non-programmers, yet structured enough to allow concise description of test scenarios and examples to illustrate business rules in most real-world domains.","testing,gherkin,bdd",https://support.smartbear.com/cucumberstudio/docs/bdd/write-gherkin-scenarios.html,Testing Strategies,uzK9lc1uTS9wzZKidY8g
+What are good questions to ask to evaluate *strategic vision*?,"* Is your team working towards a visionary goal with clear exit metrics? 
+* Does every engineer understand how their work contributes to the long-term goals?
+* Do workstreams cohere by providing mutually-overlapping benefits?
+* Can anyone explain why a specific task is in the plan?","measurement,heuristics,evaluation,leadership",https://abdulapopoola.com/2023/01/09/evaluating-managers-5-heuristics-to-measure-managerial-impact,Engineering Leadership,v3A3KOrj4b6eDtHxKdeu
+What is the purpose of *contract tests*?,To verify interactions at the boundary of an external service asserting that it meets the contract expected by a consuming service.,"testing,quality assurance,contract tests",https://martinfowler.com/articles/microservice-testing/fallback.html,Testing Strategies,v9ZF9TFW0dnCpNOKcjhL
+What is component-based decomposition?,"It is an approach to breaking up a monolith application (when the codebase has definable components), where the code is broken into *domain services* based on components in the monolith. This yields a *service-based architecture*, which if needed, can then be migrated to a *microservice architecture*.","software architecture,decomposition",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,vHclACxa8W2QTKk8T6P7
+What is the *factory method*?,"It is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,vMmFuDHRukY20MB2ce37
+What is *agility*?,The ability to respond quickly to change.,software architecture,Fundamentals of Software Architecture by Neal Ford et al.,Software Architecture,vOlCOuwMyqb5uMauX7u5
+What fitness functions for governance can be implemented as part of the *Identify and Size Components Pattern*?,"* Maintain component inventory
+* No component shall exceed <some percent> of the overall codebase
+* No component shall exceed <some number of standard deviations> from the mean component size","software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,vcCop0gMItpzG0QZbuBw
+What is the difference between *structural type languages* and *nominal type languages*?,"A static type checker uses either the names or the structure of the types in order to compare them against other types. 
+
+Checking against the name is nominal typing and checking against the structure is structural typing.",type systems,https://medium.com/@thejameskyle/type-systems-structural-vs-nominal-typing-explained-56511dd969f4,Software Architecture,wARocY7CpYQRsLZx9lM0
+What is the *visitor pattern*?,It is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.,"design patterns,behavioral patterns",https://refactoring.guru/design-patterns,Design Patterns,wOF1oLyskEBgmZLAShHJ
+What is a data product quantum?,"A code artifact that acts as an interface to the overall analytical and reporting portion of a system. It is operationally independent from other services in its domain, yet highly coupled to them and their data.","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,wPYepS9gpI1FtnP0dYr2
+"What questions should we ask ourselves when feeling anxious, according to the TEB cycle?","* What thoughts am I thinking ? 
+* How do they make me feel? 
+* What do they make me do?","mental health,cognitive distortion",https://www.tenpercent.com/meditationweeklyblog/anxiety,Mindfulness,wjVhSfzuXuHcFoBCsa6S
+What are four good questions to ask when writing code?,"* Are we solving the right problem?
+* Does our solution work as we think?
+* What is the quality of our work?
+* Are we working efficiently?","software engineering,evaluation",Modern Software Engineering by David Farley,Effective Engineering,wkgLvzctAOEN8u37a1RO
+When to use the *prototype* pattern?,"* When your code shouldn’t depend on the concrete classes of objects that you need to copy.
+
+* When you want to reduce the number of subclasses that only differ in the way they initialize their respective objects.","design pattern,creational pattern",https://refactoring.guru/design-patterns/what-is-pattern,Design Patterns,xExR04MrgY1SM7g0AAWt
+What are the disadvantages of a data lake?,"* Sometimes difficult to understand relationships
+* Requires ad-hoc transformations","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,xRSaRaOVwhOjcmREWL8u
+What is the first level of mind?,"The Everyday Mind
+
+The everyday mind is identified with the contents of our mind looking to thought and looking from thought.","meditation,open-hearted awareness,buddhism,happiness,effortless mindfulness",Shift Into Freedom by Loch Kelly,Mindfulness,xb5mSjeACW0VCd7nFRK6
+What is dynamic coupling?,"It defines how services *call* each other at runtime.
+
+It represents how quanta communicate at runtime, either synchronously or asynchronously. Thus, fitness functions for these characteristics must be continuous, typically utilizing monitors.","software architecture,dynamic coupling",Software Architecture: The Hard Parts by Neil Ford et al.,Software Architecture,xmMuqB9hqjPRe6vc7StJ
+What are the advantages of strict contracts?,"* Guaranteed contract fidelity - possible to ensure exact adherence to values, types, etc. 
+* Versioned - strict contracts will require a versioning strategy  
+* Easier to verify at build time
+* Better documentation","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,xsPZYFd6QG9DSLIG76iY
+What is afferent coupling?,The number of incoming couplings to a code artifact.,"software architecture,decomposition,measurement",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,y1z1pu3izlkaC8bMNqmH
+How can stability be tracked for a software development team?,"* Change Failure Rate: The rate at which a change introduces a defect at a particular point in the process. 
+
+* Recovery Failure Time: How long to recover from a failure at a particular point in the process.","software engineering,measurement,performance",Modern Software Engineering by David Farley,Effective Engineering,y2S0JnShMWcTDLF9vsVv
+What are the advantages of orchestration coordination?,"* Centralized workflow
+* Error handling 
+* Recoverability 
+* State management","software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,yTEmo5oUokIE5LxnSKg4
+What are the disadvantages of consumer-driven contracts?,"* Require engineering maturity - eg contract tests must be included in CI, tests can’t be skipped or ignored 
+* Two interlocking mechanisms - name-value pairs and consumer-driven contracts rather than one (a schema tool who does it all)","software architecture,contracts",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,yX7gJtSI1tJSs8HF7Gsr
+What is semantic coupling?,The inherent coupling that exists in the problem domain. The way the architect models that is the *implementation coupling*.,"software architecture,distributed workflow management",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,yrNprUlQYIcP9cHl5QOf
+What are the three laws of mastery?,"* Mastery is a mindset - develop a growth mindset.
+* Mastery is a pain - develop grit.
+* Mastery is asymptote - you can get really close, but never reach it.","motivation,mastery",Drive by Daniel Pink,Motivation,yyh01ZI1sQ1EFVBsaR6T
+What is the *usability* principle?,"Usability is the second key UX principle, which means designing products that are easy to use and navigate. This principle is critical for ensuring that your product is user-friendly and efficient. A product that is difficult to use will not be successful, no matter how well it is designed or how useful it may be. Usability involves designing interfaces that are intuitive and easy to navigate, minimizing the cognitive load on users, and providing clear feedback on user actions.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,z3bZcsuxwB2ebZvgeFRf
+What is the *consistency* principle?,"Consistency involves designing interfaces that are consistent across different screens, pages, and interactions. Consistency means using consistent design patterns, typography, and color schemes throughout the product so that users can easily recognize and understand the interface and ensure that a user’s expectations are met. Consistency also means ensuring that interactions and behaviors are consistent across different screens and devices so users can easily move between them.","UX,principles",https://blog.openreplay.com/ux-best-practices-for-developers/,User Experience,z670HsBLDDnEzkhLNqNB
+What are three types of data product quantum?,"* Source-aligned DPQ - provides analytical data on behalf of the collaborative architectural quantum, typically a microservice, acting as a cooperative quantum
+* Aggregate DPQ - aggregates data from several sources, sync or async
+* Fit-for-purpose DPQ - custom-made DPQ to fit a certain purpose, e.g., ML","software architecture,data architecture",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,zM4HZStC6ezjvMBEHH1x
+What are the benefits of trunk-based development?,"1. Speed and efficiency
+
+In trunk-based development, the entire team works on a single branch. This model allows for quicker integrations and fewer merge conflicts.
+
+2. Greater Code Stability
+
+Trunk-based development encourages frequent commits, which leads to smaller and more manageable changes.
+
+3. Enhanced Team Collaboration
+
+If you're all working on your own branches, you are not collaborating. You are competing.
+
+If you're all working on the same branch, you tend to have a better awareness of the changes being made. This approach fosters greater team collaboration and knowledge sharing.
+
+4. Improved Continuous Integration and Delivery (CI/CD) Practices
+
+In a trunk-based model, continuous integration becomes more straightforward because your code is committed frequently to trunk, and that's the branch your CI environment is running the build and tests on. 
+
+5. Reduced Technical Debt
+
+With trunk-based development, frequent merges and smaller changes make it easier to manage and reduce the build-up of technical debt.","tech debt,cicd,trunk-based-development",https://trishagee.com/2023/05/29/why-i-prefer-trunk-based-development/,Effective Engineering,zQNxeZcSsmgUJT6qLXLT
+What fitness functions for governance can be implemented as part of the *Determine Component Dependencies Pattern*?,"* No component shall have more than <some number> of total dependencies
+* <some component> should not have a dependency on <another component>","software architecture,decomposition,architectural fitness function",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,zZJjMmuEn6XzrSErWWEf
+What are the four main granularity integrators?,"* Database transactions - are ACID transactions needed required between separate services?
+* Workflow - do services need to talk to each other?
+* Shared code - do services share code with each other?
+* Shared data - do services share data with each other?","software architecture,service granularity",Software Architecture: The Hard Parts by Neal Ford et al.,Software Architecture,zlih2BvRv8sp03X3Cgwy
